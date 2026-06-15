@@ -41,7 +41,7 @@
 
     // ping-pong buffer: capture keyed frames forward, then play back and forth
     var frames = [], capDone = false, lastCapT = -1, acc = 0, playIdx = 0, dir = 1, lastTs = 0;
-    var CAP_FPS = 20, MAX_FRAMES = 120;
+    var CAP_FPS = 20, MAX_FRAMES = 260;
 
     function detectMode(d) {
       function lum(px, py) { var i = (py * SW + px) * 4; return (d[i] + d[i + 1] + d[i + 2]) / 3; }
