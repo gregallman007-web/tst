@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Take Some Time — Bird &amp; Nest Logos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@300;400;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root{
+    --shell:#FBF6F3; --petal:#F1E2DC; --tealmist:#DDEAE6;
+    --blush:#C99B93; --euc:#8FB1AB; --euc-deep:#46665F;
+    --ink:#34302E; --grey:#6E6A66; --line:rgba(52,48,46,.12);
+    --shadow:0 1px 2px rgba(52,48,46,.05), 0 20px 50px -30px rgba(52,48,46,.4);
+    --radius:20px;
+  }
+  html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  body{ margin:0; background:var(--shell); color:var(--ink); font-family:'Nunito Sans',system-ui,sans-serif; line-height:1.62; }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 28px; }
+  svg{ overflow:visible; }
+
+  .head{ padding:88px 0 24px; }
+  .eyebrow{ font-size:12px; letter-spacing:.4em; text-transform:uppercase; color:var(--grey); font-weight:700; margin:0 0 20px; }
+  .head h1{ font-family:'Marcellus',serif; font-weight:400; font-size:clamp(34px,5.4vw,58px); line-height:1.05; letter-spacing:.005em; margin:0 0 22px; max-width:18ch; }
+  .head p{ font-size:17px; color:#54504a; max-width:62ch; margin:0 0 14px; }
+  .head p.small{ font-size:14.5px; color:var(--grey); max-width:64ch; }
+
+  /* gradients-kept strip */
+  .keep{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:34px 0 6px; }
+  @media (max-width:760px){ .keep{ grid-template-columns:1fr; } }
+  .keep .g{ border-radius:14px; min-height:96px; box-shadow:var(--shadow); position:relative; border:1px solid var(--line); display:flex; align-items:flex-end; padding:14px; }
+  .keep .g span{ font-size:11px; font-weight:700; letter-spacing:.06em; color:#5a544e; background:rgba(255,255,255,.62); padding:4px 9px; border-radius:100px; backdrop-filter:blur(2px); }
+  .g1{ background:linear-gradient(135deg,#DCE6E1,#F0E2DC); }
+  .g2{ background:radial-gradient(120% 120% at 35% 28%, #E6EFEC, #8FB1AB); }
+  .g3{ background:linear-gradient(135deg,#F1E2DC,#C99B93); }
+
+  .divider{ display:flex; align-items:center; gap:16px; margin:62px 0 6px; }
+  .divider span{ font-size:12px; letter-spacing:.32em; text-transform:uppercase; font-weight:700; color:var(--grey); }
+  .divider::after{ content:""; flex:1; height:1px; background:var(--line); }
+
+  .concept{ background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; margin:24px 0; }
+  .concept__head{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding:24px 30px 0; }
+  .concept__no{ font-family:'Marcellus',serif; font-size:15px; color:var(--blush); letter-spacing:.1em; }
+  .concept__name{ font-family:'Marcellus',serif; font-size:24px; }
+  .concept__desc{ font-size:13.5px; color:var(--grey); margin-left:auto; max-width:50ch; }
+  @media (max-width:760px){ .concept__desc{ margin-left:0; flex-basis:100%; } }
+
+  .stage{ margin:22px 30px 0; border-radius:14px; min-height:300px; display:grid; place-items:center; border:1px solid var(--line); }
+  .stage.wash{ background:linear-gradient(135deg,#E3ECE8,#F4E8E2); }
+  .stage.light{ background:var(--shell); }
+  .stage.mist{ background:radial-gradient(130% 130% at 50% 18%, #EBF1EE, #CFE0DA); }
+  .stage.petal{ background:linear-gradient(135deg,#F6ECE6,#EAD7CF); }
+
+  .variants{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:14px; padding:14px 30px 26px; }
+  @media (max-width:760px){ .variants{ grid-template-columns:1fr; } }
+  .vcell{ border-radius:12px; min-height:128px; display:grid; place-items:center; position:relative; border:1px solid var(--line); padding:18px; }
+  .vcell.dark{ background:var(--euc-deep); border-color:transparent; }
+  .vcell.ink{ background:var(--ink); border-color:transparent; }
+  .vcell.light{ background:var(--shell); }
+  .vlab{ position:absolute; top:9px; left:12px; font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--grey); }
+  .vcell.dark .vlab, .vcell.ink .vlab{ color:rgba(255,255,255,.55); }
+  .rationale{ font-size:13px; color:var(--grey); padding:0 30px 26px; max-width:66ch; }
+  .rationale b{ color:var(--ink); font-weight:700; }
+
+  .favs{ display:flex; flex-wrap:wrap; gap:18px; }
+  .fav{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .fav .box{ width:66px; height:66px; border-radius:16px; display:grid; place-items:center; box-shadow:var(--shadow); }
+  .fav small{ font-size:11px; color:var(--grey); font-weight:600; }
+
+  .foot{ padding:26px 0 110px; }
+  .next{ background:var(--euc-deep); color:#fff; border-radius:var(--radius); padding:46px 48px; box-shadow:var(--shadow); }
+  .next h2{ font-family:'Marcellus',serif; font-weight:400; font-size:32px; margin:0 0 10px; }
+  .next p{ color:rgba(255,255,255,.85); max-width:60ch; margin:0 0 22px; }
+  .next ol{ margin:0; padding:0; list-style:none; counter-reset:s; display:grid; gap:13px; }
+  .next li{ counter-increment:s; padding-left:44px; position:relative; font-size:14.5px; color:rgba(255,255,255,.92); }
+  .next li::before{ content:counter(s); position:absolute; left:0; top:-1px; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.14); color:#fff; font-weight:700; font-size:13px; display:grid; place-items:center; }
+  .next b{ color:#fff; }
+  @media (max-width:760px){ .next{ padding:32px 26px; } }
+</style>
+</head>
+<body>
+
+<!-- shared gradient defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gBlush" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F1E2DC"/><stop offset="1" stop-color="#C99B93"/>
+  </linearGradient>
+  <linearGradient id="gBlushSoft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F4E7E2"/><stop offset="1" stop-color="#D9ABA2"/>
+  </linearGradient>
+  <radialGradient id="gEucMist" cx="0.35" cy="0.28" r="0.85">
+    <stop offset="0" stop-color="#E6EFEC"/><stop offset="1" stop-color="#8FB1AB"/>
+  </radialGradient>
+  <linearGradient id="gDeep" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#6E8F88"/><stop offset="1" stop-color="#46665F"/>
+  </linearGradient>
+  <linearGradient id="gWash" x1="0" y1="1" x2="1" y2="0">
+    <stop offset="0" stop-color="#C9DAD3"/><stop offset="1" stop-color="#EAD3CB"/>
+  </linearGradient>
+</defs></svg>
+
+<header class="head wrap">
+  <p class="eyebrow">Take Some Time · Logo — round two</p>
+  <h1>Birds &amp; nests, with the gradients kept.</h1>
+  <p>Good steers. The contrast system stays, and the soft gradients you liked carry straight through —
+  as roundels behind the marks and as washes here. I've set Cradle and Signature aside (you're right,
+  one read as a breast and they sat too close) and gone properly into <b>birds and nests</b>, picking up
+  the little bird from the mood board.</p>
+  <p class="small">Five routes below. Nests are drawn as woven nests — twigs and eggs — so nothing reads
+  ambiguously. As before these are vector concepts to choose a direction; the winner gets hand-refined.</p>
+
+  <div class="keep">
+    <div class="g g1"><span>Blush ↔ eucalyptus wash</span></div>
+    <div class="g g2"><span>Eucalyptus mist · radial</span></div>
+    <div class="g g3"><span>Blush rose · linear</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="divider"><span>Five bird &amp; nest routes</span></div>
+
+  <!-- ============ 01 LITTLE BIRD ============ -->
+  <section class="concept" data-screen-label="Logo 01 — Little Bird">
+    <div class="concept__head">
+      <span class="concept__no">01</span><span class="concept__name">Little Bird</span>
+      <span class="concept__desc">The mood-board bird, refined to a single plump songbird. Friendly,
+      modern, instantly readable at any size — the cleanest evolution of the Nesting Place feeling.</span>
+    </div>
+    <div class="stage wash">
+      <svg width="300" height="250" viewBox="0 0 340 270" aria-label="Take Some Time — Little Bird">
+        <g transform="translate(170 74) scale(1.5)">
+          <polygon points="-14,-1 -31,-8 -19,7" fill="#46665F"/>
+          <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#46665F"/>
+          <circle cx="10" cy="-6" r="8.6" fill="#46665F"/>
+          <polygon points="17,-7 27,-4.4 17,-1.6" fill="#C99B93"/>
+          <path d="M-9 2 C-3 -2 6 -1 11 4 C4 7 -4 6 -9 2 Z" fill="#8FB1AB"/>
+          <circle cx="12.6" cy="-6.6" r="1.5" fill="#FBF6F3"/>
+        </g>
+        <text x="170" y="196" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#34302E" letter-spacing="3">TAKE SOME TIME</text>
+        <line x1="116" y1="214" x2="224" y2="214" stroke="#8FB1AB" stroke-width="1.2"/>
+        <text x="170" y="234" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="10" fill="#6E6A66" letter-spacing="2">PREGNANCY &amp; POSTNATAL MASSAGE</text>
+      </svg>
+    </div>
+    <div class="variants">
+      <div class="vcell dark">
+        <span class="vlab">Reversed · deep eucalyptus</span>
+        <svg width="210" height="84" viewBox="0 0 210 84" aria-label="reversed">
+          <g transform="translate(38 42) scale(0.92)">
+            <polygon points="-14,-1 -31,-8 -19,7" fill="#fff"/>
+            <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#fff"/>
+            <circle cx="10" cy="-6" r="8.6" fill="#fff"/>
+            <polygon points="17,-7 27,-4.4 17,-1.6" fill="#C99B93"/>
+            <path d="M-9 2 C-3 -2 6 -1 11 4 C4 7 -4 6 -9 2 Z" fill="#8FB1AB"/>
+            <circle cx="12.6" cy="-6.6" r="1.5" fill="#46665F"/>
+          </g>
+          <text x="76" y="38" font-family="Marcellus,serif" font-size="15" fill="#fff" letter-spacing="1.5">take some</text>
+          <text x="76" y="58" font-family="Marcellus,serif" font-size="15" fill="#8FB1AB" letter-spacing="3">time</text>
+        </svg>
+      </div>
+      <div class="vcell light">
+        <span class="vlab">Horizontal</span>
+        <svg width="186" height="74" viewBox="0 0 186 74" aria-label="horizontal">
+          <g transform="translate(30 36) scale(0.82)">
+            <polygon points="-14,-1 -31,-8 -19,7" fill="#46665F"/>
+            <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#46665F"/>
+            <circle cx="10" cy="-6" r="8.6" fill="#46665F"/>
+            <polygon points="17,-7 27,-4.4 17,-1.6" fill="#C99B93"/>
+            <path d="M-9 2 C-3 -2 6 -1 11 4 C4 7 -4 6 -9 2 Z" fill="#8FB1AB"/>
+            <circle cx="12.6" cy="-6.6" r="1.5" fill="#FBF6F3"/>
+          </g>
+          <text x="62" y="34" font-family="Marcellus,serif" font-size="15" fill="#34302E" letter-spacing="1.5">take some</text>
+          <text x="62" y="53" font-family="Marcellus,serif" font-size="15" fill="#46665F" letter-spacing="3">time</text>
+        </svg>
+      </div>
+      <div class="vcell" style="background:radial-gradient(120% 120% at 35% 28%, #E6EFEC, #8FB1AB);">
+        <span class="vlab">Favicon · gradient</span>
+        <svg width="60" height="60" viewBox="0 0 60 60" aria-label="favicon">
+          <g transform="translate(30 30) scale(1.05)">
+            <polygon points="-14,-1 -31,-8 -19,7" fill="#fff"/>
+            <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#fff"/>
+            <circle cx="10" cy="-6" r="8.6" fill="#fff"/>
+            <polygon points="17,-7 27,-4.4 17,-1.6" fill="#46665F"/>
+            <path d="M-9 2 C-3 -2 6 -1 11 4 C4 7 -4 6 -9 2 Z" fill="#C5DAD3"/>
+            <circle cx="12.6" cy="-6.6" r="1.5" fill="#46665F"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p class="rationale"><b>Why it works:</b> one warm character does all the work — calm, caring, a little
+    bit joyful. The eucalyptus wing and blush beak give you both brand colours in the mark, on light only.</p>
+  </section>
+
+  <!-- ============ 02 BIRD ON NEST ============ -->
+  <section class="concept" data-screen-label="Logo 02 — Bird on Nest">
+    <div class="concept__head">
+      <span class="concept__no">02</span><span class="concept__name">Bird on Nest</span>
+      <span class="concept__desc">The full story in one mark — a little bird settled on a woven nest. The
+      twigs read clearly, so it's unmistakably a nest. Warm, homely, protective.</span>
+    </div>
+    <div class="stage mist">
+      <svg width="300" height="252" viewBox="0 0 340 272" aria-label="Take Some Time — Bird on Nest">
+        <g transform="translate(170 78) scale(1.35)">
+          <!-- bird sitting -->
+          <g transform="translate(0 -9) scale(0.92)">
+            <ellipse cx="-1" cy="0" rx="14" ry="11" fill="#46665F"/>
+            <circle cx="9" cy="-7" r="7.6" fill="#46665F"/>
+            <polygon points="15,-8 24,-5.6 15,-2.8" fill="#C99B93"/>
+            <path d="M-8 0 C-2 -4 6 -3 10 2 C4 5 -3 4 -8 0 Z" fill="#8FB1AB"/>
+            <circle cx="11.3" cy="-7.4" r="1.4" fill="#FBF6F3"/>
+          </g>
+          <!-- woven nest -->
+          <path d="M-30 6 C-30 22 -16 28 0 28 C16 28 30 22 30 6 C20 12 -20 12 -30 6 Z" fill="url(#gEucMist)"/>
+          <path d="M-30 6 C-18 12 18 12 30 6" fill="none" stroke="#46665F" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M-25 11 C-11 20 11 20 25 11" fill="none" stroke="#46665F" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+          <path d="M-19 17 C-8 23 8 23 19 17" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".6"/>
+          <g stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".7">
+            <line x1="-12" y1="6" x2="-9" y2="13"/><line x1="0" y1="7" x2="2" y2="14"/><line x1="12" y1="6" x2="9" y2="13"/>
+          </g>
+        </g>
+        <text x="170" y="206" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#34302E" letter-spacing="3">TAKE SOME TIME</text>
+        <line x1="116" y1="224" x2="224" y2="224" stroke="#8FB1AB" stroke-width="1.2"/>
+        <text x="170" y="244" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="10" fill="#6E6A66" letter-spacing="2">PREGNANCY &amp; POSTNATAL MASSAGE</text>
+      </svg>
+    </div>
+    <div class="variants">
+      <div class="vcell dark">
+        <span class="vlab">Reversed</span>
+        <svg width="210" height="86" viewBox="0 0 210 86" aria-label="reversed">
+          <g transform="translate(40 44) scale(0.8)">
+            <g transform="translate(0 -9) scale(0.9)">
+              <ellipse cx="-1" cy="0" rx="14" ry="11" fill="#fff"/>
+              <circle cx="9" cy="-7" r="7.6" fill="#fff"/>
+              <polygon points="15,-8 24,-5.6 15,-2.8" fill="#C99B93"/>
+              <path d="M-8 0 C-2 -4 6 -3 10 2 C4 5 -3 4 -8 0 Z" fill="#8FB1AB"/>
+            </g>
+            <path d="M-30 6 C-30 22 -16 28 0 28 C16 28 30 22 30 6 C20 12 -20 12 -30 6 Z" fill="none" stroke="#fff" stroke-width="1.8"/>
+            <path d="M-25 11 C-11 20 11 20 25 11" fill="none" stroke="#9FBDB6" stroke-width="1.3" stroke-linecap="round"/>
+          </g>
+          <text x="78" y="40" font-family="Marcellus,serif" font-size="14.5" fill="#fff" letter-spacing="1.5">take some</text>
+          <text x="78" y="59" font-family="Marcellus,serif" font-size="14.5" fill="#8FB1AB" letter-spacing="3">time</text>
+        </svg>
+      </div>
+      <div class="vcell light">
+        <span class="vlab">Stacked</span>
+        <svg width="150" height="118" viewBox="0 0 150 118" aria-label="stacked">
+          <g transform="translate(75 40) scale(0.92)">
+            <g transform="translate(0 -9) scale(0.9)">
+              <ellipse cx="-1" cy="0" rx="14" ry="11" fill="#46665F"/>
+              <circle cx="9" cy="-7" r="7.6" fill="#46665F"/>
+              <polygon points="15,-8 24,-5.6 15,-2.8" fill="#C99B93"/>
+              <path d="M-8 0 C-2 -4 6 -3 10 2 C4 5 -3 4 -8 0 Z" fill="#8FB1AB"/>
+              <circle cx="11.3" cy="-7.4" r="1.3" fill="#FBF6F3"/>
+            </g>
+            <path d="M-30 6 C-30 22 -16 28 0 28 C16 28 30 22 30 6 C20 12 -20 12 -30 6 Z" fill="url(#gEucMist)"/>
+            <path d="M-30 6 C-18 12 18 12 30 6" fill="none" stroke="#46665F" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+          <text x="75" y="98" text-anchor="middle" font-family="Marcellus,serif" font-size="12" fill="#34302E" letter-spacing="2">TAKE SOME TIME</text>
+        </svg>
+      </div>
+      <div class="vcell" style="background:var(--shell);">
+        <span class="vlab">Favicon</span>
+        <svg width="60" height="60" viewBox="0 0 60 60" aria-label="favicon">
+          <g transform="translate(30 26) scale(0.82)">
+            <g transform="translate(0 -9) scale(0.9)">
+              <ellipse cx="-1" cy="0" rx="14" ry="11" fill="#46665F"/>
+              <circle cx="9" cy="-7" r="7.6" fill="#46665F"/>
+              <polygon points="15,-8 24,-5.6 15,-2.8" fill="#C99B93"/>
+            </g>
+            <path d="M-30 6 C-30 22 -16 28 0 28 C16 28 30 22 30 6 C20 12 -20 12 -30 6 Z" fill="url(#gEucMist)"/>
+            <path d="M-30 6 C-18 12 18 12 30 6" fill="none" stroke="#46665F" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p class="rationale"><b>Why it works:</b> tells the whole brand in one breath — mother, baby, home, safety.
+    The nest fill uses the eucalyptus-mist gradient you wanted to keep.</p>
+  </section>
+
+  <!-- ============ 03 NEST & EGGS ============ -->
+  <section class="concept" data-screen-label="Logo 03 — Nest &amp; Eggs">
+    <div class="concept__head">
+      <span class="concept__no">03</span><span class="concept__name">Nest &amp; Eggs</span>
+      <span class="concept__desc">Quieter and more symbolic — a woven nest holding two eggs, one larger,
+      one small. A gentle nod to mother and baby, pregnancy and postnatal, without a literal figure.</span>
+    </div>
+    <div class="stage light">
+      <svg width="300" height="248" viewBox="0 0 340 268" aria-label="Take Some Time — Nest and Eggs">
+        <g transform="translate(170 70) scale(1.5)">
+          <!-- eggs -->
+          <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+          <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+          <!-- nest bowl -->
+          <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+          <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/><path d="M-29 5 C-15 14 15 14 29 5" fill="none" stroke="#46665F" stroke-width="1.25" stroke-linecap="round" opacity=".82"/>
+          <path d="M-25 9 C-12 17 12 17 25 9" fill="none" stroke="#46665F" stroke-width="1.15" stroke-linecap="round" opacity=".66"/>
+          <path d="M-18 14 C-8 20 8 20 18 14" fill="none" stroke="#46665F" stroke-width="1.05" stroke-linecap="round" opacity=".5"/>
+          <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".7">
+            <path d="M-22 4 C-16 10 -11 14 -6 18"/><path d="M-9 3 C-5 9 -1 13 3 18"/><path d="M9 3 C5 9 1 13 -3 18"/><path d="M22 4 C16 10 11 14 6 18"/>
+          </g>
+        </g>
+        <text x="170" y="190" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#34302E" letter-spacing="3">TAKE SOME TIME</text>
+        <line x1="116" y1="208" x2="224" y2="208" stroke="#8FB1AB" stroke-width="1.2"/>
+        <text x="170" y="228" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="10" fill="#6E6A66" letter-spacing="2">PREGNANCY &amp; POSTNATAL MASSAGE</text>
+      </svg>
+    </div>
+    <div class="variants">
+      <div class="vcell dark">
+        <span class="vlab">Reversed</span>
+        <svg width="210" height="86" viewBox="0 0 210 86" aria-label="reversed">
+          <g transform="translate(40 44) scale(0.86)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="#E7C7BE"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="#A7C4BD"/>
+            <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#fff" stroke-width="1.45" stroke-linecap="round" opacity=".92"/><path d="M32 0 l6 -2 M-32 0 l-6 -2 M17 -4 l2 -7 M-15 -4 l-2 -7" fill="none" stroke="#9FBDB6" stroke-width="1.1" stroke-linecap="round" opacity=".9"/>
+            <path d="M-25 9 C-12 17 12 17 25 9" fill="none" stroke="#9FBDB6" stroke-width="1.2" stroke-linecap="round"/><path d="M-18 13 C-8 19 8 19 18 13" fill="none" stroke="#9FBDB6" stroke-width="1.05" stroke-linecap="round" opacity=".72"/>
+          </g>
+          <text x="78" y="40" font-family="Marcellus,serif" font-size="14.5" fill="#fff" letter-spacing="1.5">take some</text>
+          <text x="78" y="59" font-family="Marcellus,serif" font-size="14.5" fill="#8FB1AB" letter-spacing="3">time</text>
+        </svg>
+      </div>
+      <div class="vcell light">
+        <span class="vlab">Horizontal</span>
+        <svg width="170" height="74" viewBox="0 0 170 74" aria-label="horizontal">
+          <g transform="translate(30 37) scale(0.74)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/><path d="M-29 5 C-15 14 15 14 29 5" fill="none" stroke="#46665F" stroke-width="1.25" stroke-linecap="round" opacity=".82"/>
+          </g>
+          <text x="58" y="34" font-family="Marcellus,serif" font-size="14" fill="#34302E" letter-spacing="1.2">take some</text>
+          <text x="58" y="52" font-family="Marcellus,serif" font-size="14" fill="#46665F" letter-spacing="2.6">time</text>
+        </svg>
+      </div>
+      <div class="vcell" style="background:linear-gradient(135deg,#F6ECE6,#EAD7CF);">
+        <span class="vlab">Favicon</span>
+        <svg width="60" height="60" viewBox="0 0 60 60" aria-label="favicon">
+          <g transform="translate(30 28) scale(0.86)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.8" stroke-linecap="round"/><path d="M-28 5 C-15 14 15 14 28 5" fill="none" stroke="#46665F" stroke-width="1.3" stroke-linecap="round" opacity=".78"/><path d="M-20 10 C-9 18 9 18 20 10" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".56"/><g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".66"><path d="M-15 4 C-10 10 -5 14 -1 18"/><path d="M15 4 C10 10 5 14 1 18"/></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p class="rationale"><b>Why it works:</b> the most timeless and least literal — a nest with eggs ages well
+    and embosses beautifully on cards and oils. Both eggs use your kept gradients (blush + eucalyptus mist).</p>
+  </section>
+
+  <!-- ============ 04 MOTHER & BABY ============ -->
+  <section class="concept" data-screen-label="Logo 04 — Mother &amp; Baby">
+    <div class="concept__head">
+      <span class="concept__no">04</span><span class="concept__name">Mother &amp; Baby</span>
+      <span class="concept__desc">Two birds — a parent and a little one tucked beside her. The most directly
+      about the relationship at the heart of the service. Tender and warm.</span>
+    </div>
+    <div class="stage petal">
+      <svg width="300" height="248" viewBox="0 0 340 268" aria-label="Take Some Time — Mother and Baby birds">
+        <g transform="translate(170 70) scale(1.4)">
+          <!-- mother bird -->
+          <polygon points="-16,-1 -33,-9 -21,7" fill="#46665F"/>
+          <ellipse cx="-3" cy="2" rx="15" ry="12" fill="#46665F"/>
+          <circle cx="9" cy="-6" r="8.4" fill="#46665F"/>
+          <polygon points="16,-7 26,-4.4 16,-1.6" fill="#C99B93"/>
+          <path d="M-10 2 C-4 -2 5 -1 10 4 C3 7 -5 6 -10 2 Z" fill="#8FB1AB"/>
+          <circle cx="11.6" cy="-6.6" r="1.5" fill="#FBF6F3"/>
+          <!-- baby bird -->
+          <g transform="translate(17 13) scale(0.58)">
+            <ellipse cx="-2" cy="2" rx="14" ry="11" fill="#8FB1AB"/>
+            <circle cx="9" cy="-5" r="7.6" fill="#8FB1AB"/>
+            <polygon points="15,-6 24,-3.8 15,-1.2" fill="#C99B93"/>
+            <circle cx="11.2" cy="-5.4" r="1.7" fill="#FBF6F3"/>
+          </g>
+        </g>
+        <text x="170" y="190" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#34302E" letter-spacing="3">TAKE SOME TIME</text>
+        <line x1="116" y1="208" x2="224" y2="208" stroke="#8FB1AB" stroke-width="1.2"/>
+        <text x="170" y="228" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="10" fill="#6E6A66" letter-spacing="2">PREGNANCY &amp; POSTNATAL MASSAGE</text>
+      </svg>
+    </div>
+    <div class="variants">
+      <div class="vcell dark">
+        <span class="vlab">Reversed</span>
+        <svg width="210" height="84" viewBox="0 0 210 84" aria-label="reversed">
+          <g transform="translate(40 42) scale(0.82)">
+            <polygon points="-16,-1 -33,-9 -21,7" fill="#fff"/>
+            <ellipse cx="-3" cy="2" rx="15" ry="12" fill="#fff"/>
+            <circle cx="9" cy="-6" r="8.4" fill="#fff"/>
+            <polygon points="16,-7 26,-4.4 16,-1.6" fill="#C99B93"/>
+            <path d="M-10 2 C-4 -2 5 -1 10 4 C3 7 -5 6 -10 2 Z" fill="#8FB1AB"/>
+            <g transform="translate(17 13) scale(0.58)">
+              <ellipse cx="-2" cy="2" rx="14" ry="11" fill="#9FBDB6"/>
+              <circle cx="9" cy="-5" r="7.6" fill="#9FBDB6"/>
+              <polygon points="15,-6 24,-3.8 15,-1.2" fill="#C99B93"/>
+            </g>
+          </g>
+          <text x="80" y="38" font-family="Marcellus,serif" font-size="14.5" fill="#fff" letter-spacing="1.5">take some</text>
+          <text x="80" y="57" font-family="Marcellus,serif" font-size="14.5" fill="#8FB1AB" letter-spacing="3">time</text>
+        </svg>
+      </div>
+      <div class="vcell light">
+        <span class="vlab">Horizontal</span>
+        <svg width="178" height="74" viewBox="0 0 178 74" aria-label="horizontal">
+          <g transform="translate(30 36) scale(0.74)">
+            <polygon points="-16,-1 -33,-9 -21,7" fill="#46665F"/>
+            <ellipse cx="-3" cy="2" rx="15" ry="12" fill="#46665F"/>
+            <circle cx="9" cy="-6" r="8.4" fill="#46665F"/>
+            <polygon points="16,-7 26,-4.4 16,-1.6" fill="#C99B93"/>
+            <path d="M-10 2 C-4 -2 5 -1 10 4 C3 7 -5 6 -10 2 Z" fill="#8FB1AB"/>
+            <g transform="translate(17 13) scale(0.58)">
+              <ellipse cx="-2" cy="2" rx="14" ry="11" fill="#8FB1AB"/>
+              <circle cx="9" cy="-5" r="7.6" fill="#8FB1AB"/>
+              <polygon points="15,-6 24,-3.8 15,-1.2" fill="#C99B93"/>
+            </g>
+          </g>
+          <text x="64" y="34" font-family="Marcellus,serif" font-size="14" fill="#34302E" letter-spacing="1.2">take some</text>
+          <text x="64" y="52" font-family="Marcellus,serif" font-size="14" fill="#46665F" letter-spacing="2.6">time</text>
+        </svg>
+      </div>
+      <div class="vcell" style="background:var(--shell);">
+        <span class="vlab">Favicon</span>
+        <svg width="60" height="60" viewBox="0 0 60 60" aria-label="favicon">
+          <g transform="translate(28 30) scale(0.8)">
+            <polygon points="-16,-1 -33,-9 -21,7" fill="#46665F"/>
+            <ellipse cx="-3" cy="2" rx="15" ry="12" fill="#46665F"/>
+            <circle cx="9" cy="-6" r="8.4" fill="#46665F"/>
+            <polygon points="16,-7 26,-4.4 16,-1.6" fill="#C99B93"/>
+            <path d="M-10 2 C-4 -2 5 -1 10 4 C3 7 -5 6 -10 2 Z" fill="#8FB1AB"/>
+            <g transform="translate(17 13) scale(0.58)">
+              <ellipse cx="-2" cy="2" rx="14" ry="11" fill="#8FB1AB"/>
+              <circle cx="9" cy="-5" r="7.6" fill="#8FB1AB"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p class="rationale"><b>Why it works:</b> the relationship <i>is</i> the brand. The size difference does the
+    storytelling; the baby bird picks up the eucalyptus, the mother stays charcoal-green.</p>
+  </section>
+
+  <!-- ============ 05 BIRD ROUNDEL ============ -->
+  <section class="concept" data-screen-label="Logo 05 — Bird Roundel">
+    <div class="concept__head">
+      <span class="concept__no">05</span><span class="concept__name">Bird Roundel</span>
+      <span class="concept__desc">An emblem — the bird and a little nest-curve inside a soft gradient circle.
+      The most “badge-able” for stamps, stickers, gift tags and social avatars; the gradient is the hero.</span>
+    </div>
+    <div class="stage light">
+      <svg width="300" height="252" viewBox="0 0 340 272" aria-label="Take Some Time — Bird Roundel">
+        <g transform="translate(170 76)">
+          <circle cx="0" cy="0" r="52" fill="url(#gWash)"/>
+          <circle cx="0" cy="0" r="52" fill="none" stroke="#46665F" stroke-width="1.4" opacity=".5"/>
+          <g transform="translate(-2 -8) scale(1.25)">
+            <polygon points="-14,-1 -31,-8 -19,7" fill="#46665F"/>
+            <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#46665F"/>
+            <circle cx="10" cy="-6" r="8.6" fill="#46665F"/>
+            <polygon points="17,-7 27,-4.4 17,-1.6" fill="#FBF6F3"/>
+            <path d="M-9 2 C-3 -2 6 -1 11 4 C4 7 -4 6 -9 2 Z" fill="#9FBDB6"/>
+            <circle cx="12.6" cy="-6.6" r="1.5" fill="#FBF6F3"/>
+          </g>
+          <path d="M-22 26 C-10 34 10 34 22 26" fill="none" stroke="#46665F" stroke-width="1.6" stroke-linecap="round"/>
+        </g>
+        <text x="170" y="196" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#34302E" letter-spacing="3">TAKE SOME TIME</text>
+        <line x1="116" y1="214" x2="224" y2="214" stroke="#8FB1AB" stroke-width="1.2"/>
+        <text x="170" y="234" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="10" fill="#6E6A66" letter-spacing="2">PREGNANCY &amp; POSTNATAL MASSAGE</text>
+      </svg>
+    </div>
+    <div class="variants">
+      <div class="vcell dark">
+        <span class="vlab">Reversed · roundel</span>
+        <svg width="210" height="92" viewBox="0 0 210 92" aria-label="reversed">
+          <g transform="translate(46 46)">
+            <circle cx="0" cy="0" r="34" fill="none" stroke="#9FBDB6" stroke-width="1.4"/>
+            <g transform="translate(-2 -6) scale(0.86)">
+              <polygon points="-14,-1 -31,-8 -19,7" fill="#fff"/>
+              <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#fff"/>
+              <circle cx="10" cy="-6" r="8.6" fill="#fff"/>
+              <polygon points="17,-7 27,-4.4 17,-1.6" fill="#C99B93"/>
+              <path d="M-9 2 C-3 -2 6 -1 11 4 C4 7 -4 6 -9 2 Z" fill="#8FB1AB"/>
+            </g>
+            <path d="M-16 18 C-7 24 7 24 16 18" fill="none" stroke="#9FBDB6" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+          <text x="98" y="42" font-family="Marcellus,serif" font-size="13.5" fill="#fff" letter-spacing="1.5">take some</text>
+          <text x="98" y="60" font-family="Marcellus,serif" font-size="13.5" fill="#8FB1AB" letter-spacing="2.6">time</text>
+        </svg>
+      </div>
+      <div class="vcell light">
+        <span class="vlab">Stamp · one colour</span>
+        <svg width="120" height="118" viewBox="0 0 120 118" aria-label="stamp">
+          <g transform="translate(60 50)">
+            <circle cx="0" cy="0" r="40" fill="none" stroke="#46665F" stroke-width="1.6"/>
+            <g transform="translate(-2 -8) scale(1)">
+              <polygon points="-14,-1 -31,-8 -19,7" fill="#46665F"/>
+              <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#46665F"/>
+              <circle cx="10" cy="-6" r="8.6" fill="#46665F"/>
+              <polygon points="17,-7 27,-4.4 17,-1.6" fill="#46665F"/>
+              <circle cx="12.6" cy="-6.6" r="1.5" fill="#FBF6F3"/>
+            </g>
+            <path d="M-18 22 C-8 28 8 28 18 22" fill="none" stroke="#46665F" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+          <text x="60" y="104" text-anchor="middle" font-family="Marcellus,serif" font-size="9.5" fill="#6E6A66" letter-spacing="3">EST · MID-ESSEX</text>
+        </svg>
+      </div>
+      <div class="vcell" style="background:var(--shell);">
+        <span class="vlab">Favicon · gradient</span>
+        <svg width="60" height="60" viewBox="0 0 60 60" aria-label="favicon">
+          <circle cx="30" cy="30" r="28" fill="url(#gWash)"/>
+          <g transform="translate(28 24) scale(0.78)">
+            <polygon points="-14,-1 -31,-8 -19,7" fill="#46665F"/>
+            <ellipse cx="-2" cy="2" rx="15" ry="12" fill="#46665F"/>
+            <circle cx="10" cy="-6" r="8.6" fill="#46665F"/>
+            <polygon points="17,-7 27,-4.4 17,-1.6" fill="#FBF6F3"/>
+          </g>
+          <path d="M16 42 C24 47 36 47 44 42" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <p class="rationale"><b>Why it works:</b> the gradient roundel is straight from your mood board and makes a
+    gorgeous stamp / sticker / avatar. Bird sits above a single nest-curve — but enclosed, so it never reads
+    as anything but a badge.</p>
+  </section>
+
+  <div class="divider"><span>Avatars side by side</span></div>
+  <section class="concept" data-screen-label="Favicon comparison" style="padding:30px;">
+    <div class="favs">
+      <div class="fav">
+        <div class="box" style="background:radial-gradient(120% 120% at 35% 28%, #E6EFEC, #8FB1AB);">
+          <svg width="42" height="42" viewBox="0 0 60 60"><g transform="translate(30 30) scale(1.05)"><polygon points="-14,-1 -31,-8 -19,7" fill="#fff"/><ellipse cx="-2" cy="2" rx="15" ry="12" fill="#fff"/><circle cx="10" cy="-6" r="8.6" fill="#fff"/><polygon points="17,-7 27,-4.4 17,-1.6" fill="#46665F"/><circle cx="12.6" cy="-6.6" r="1.5" fill="#46665F"/></g></svg>
+        </div>
+        <small>01 Little Bird</small>
+      </div>
+      <div class="fav">
+        <div class="box" style="background:var(--shell); border:1px solid var(--line);">
+          <svg width="42" height="42" viewBox="0 0 60 60"><g transform="translate(30 26) scale(0.82)"><g transform="translate(0 -9) scale(0.9)"><ellipse cx="-1" cy="0" rx="14" ry="11" fill="#46665F"/><circle cx="9" cy="-7" r="7.6" fill="#46665F"/><polygon points="15,-8 24,-5.6 15,-2.8" fill="#C99B93"/></g><path d="M-30 6 C-30 22 -16 28 0 28 C16 28 30 22 30 6 C20 12 -20 12 -30 6 Z" fill="url(#gEucMist)"/><path d="M-30 6 C-18 12 18 12 30 6" fill="none" stroke="#46665F" stroke-width="1.6" stroke-linecap="round"/></g></svg>
+        </div>
+        <small>02 Bird on Nest</small>
+      </div>
+      <div class="fav">
+        <div class="box" style="background:linear-gradient(135deg,#F6ECE6,#EAD7CF);">
+          <svg width="42" height="42" viewBox="0 0 60 60"><g transform="translate(30 28) scale(0.86)"><ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/><ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/><path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/><path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.8" stroke-linecap="round"/><path d="M-28 5 C-15 14 15 14 28 5" fill="none" stroke="#46665F" stroke-width="1.3" stroke-linecap="round" opacity=".78"/><path d="M-20 10 C-9 18 9 18 20 10" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".56"/><g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".66"><path d="M-15 4 C-10 10 -5 14 -1 18"/><path d="M15 4 C10 10 5 14 1 18"/></g></g></svg>
+        </div>
+        <small>03 Nest &amp; Eggs</small>
+      </div>
+      <div class="fav">
+        <div class="box" style="background:var(--shell); border:1px solid var(--line);">
+          <svg width="42" height="42" viewBox="0 0 60 60"><g transform="translate(28 30) scale(0.8)"><polygon points="-16,-1 -33,-9 -21,7" fill="#46665F"/><ellipse cx="-3" cy="2" rx="15" ry="12" fill="#46665F"/><circle cx="9" cy="-6" r="8.4" fill="#46665F"/><polygon points="16,-7 26,-4.4 16,-1.6" fill="#C99B93"/><path d="M-10 2 C-4 -2 5 -1 10 4 C3 7 -5 6 -10 2 Z" fill="#8FB1AB"/><g transform="translate(17 13) scale(0.58)"><ellipse cx="-2" cy="2" rx="14" ry="11" fill="#8FB1AB"/><circle cx="9" cy="-5" r="7.6" fill="#8FB1AB"/></g></g></svg>
+        </div>
+        <small>04 Mother &amp; Baby</small>
+      </div>
+      <div class="fav">
+        <div class="box" style="background:var(--shell); border:1px solid var(--line); overflow:hidden;">
+          <svg width="52" height="52" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="url(#gWash)"/><g transform="translate(28 24) scale(0.78)"><polygon points="-14,-1 -31,-8 -19,7" fill="#46665F"/><ellipse cx="-2" cy="2" rx="15" ry="12" fill="#46665F"/><circle cx="10" cy="-6" r="8.6" fill="#46665F"/><polygon points="17,-7 27,-4.4 17,-1.6" fill="#FBF6F3"/></g><path d="M16 42 C24 47 36 47 44 42" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </div>
+        <small>05 Roundel</small>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot wrap">
+  <div class="next">
+    <h2>Which bird flies?</h2>
+    <p>Point me at a direction and I'll refine the curves, balance the weight, and deliver the full kit.
+    Happy to cross-breed too — e.g. Little Bird's character sitting in Nest &amp; Eggs.</p>
+    <ol>
+      <li>Favourite route — <b>01 Little Bird</b>, <b>02 Bird on Nest</b>, <b>03 Nest &amp; Eggs</b>, <b>04 Mother &amp; Baby</b>, or <b>05 Roundel</b>?</li>
+      <li>Should the bird feel more <b>illustrated / watercolour</b> (closer to The Nesting Place), or stay this <b>clean and geometric</b>?</li>
+      <li>Keep the wordmark in Marcellus caps, or pair the bird with the friendly script for the name?</li>
+      <li>Any element to push further — a woven texture, an extra egg, a softer or rounder bird?</li>
+    </ol>
+  </div>
+</footer>
+
+</body>
+</html>

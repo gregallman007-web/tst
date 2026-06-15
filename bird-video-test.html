@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bird animation — transparent background</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<style>
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#FBF6F3; color:#34302E; font-family:'Nunito Sans',system-ui,sans-serif; padding:46px 30px 80px; }
+  .wrap{ max-width:1000px; margin:0 auto; }
+  h1{ font-family:'Marcellus',serif; font-weight:400; font-size:34px; margin:0 0 8px; }
+  p.lede{ color:#54504a; max-width:60ch; }
+  .row{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:34px; }
+  @media (max-width:740px){ .row{ grid-template-columns:1fr; } }
+  .card{ border:1px solid rgba(52,48,46,.13); border-radius:16px; overflow:hidden; box-shadow:0 18px 40px -30px rgba(52,48,46,.5); }
+  .card h3{ font-family:'Nunito Sans',sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#6E6A66; margin:0; padding:14px 18px; border-bottom:1px solid rgba(52,48,46,.1); background:#fff; }
+  .stage{ min-height:300px; display:grid; place-items:center; padding:16px; }
+  .stage.cream{ background:#FBF6F3; }
+  .stage.photo{ background:linear-gradient(135deg,#46665F,#7E9B94); }
+  video.raw{ width:320px; height:auto; display:block; }
+  canvas.keyed{ width:320px; height:auto; display:block; filter:drop-shadow(0 16px 13px rgba(52,48,46,.24)); }
+  /* hero-style demo */
+  .hero-demo{ margin-top:46px; position:relative; border:1px solid rgba(52,48,46,.13); border-radius:20px; overflow:hidden;
+    background:radial-gradient(120% 120% at 80% 10%, #E9F0EC, #F4E8E2); padding:54px 40px; display:flex; align-items:center; gap:30px; }
+  .hero-demo .t{ flex:1; }
+  .hero-demo .kicker{ font-family:'Caveat',cursive; font-size:26px; color:#46665F; }
+  .hero-demo h2{ font-family:'Marcellus',serif; font-weight:400; font-size:30px; margin:4px 0 0; max-width:16ch; }
+  .hero-demo canvas{ width:200px; height:auto; filter:drop-shadow(0 16px 13px rgba(52,48,46,.26)); }
+  .note{ font-size:13px; color:#6E6A66; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Yes — it can sit on any background.</h1>
+  <p class="lede">The bird is pale, so a plain key made it wash out on light. Now I keep the bird (and its
+  dark linework) fully solid, remove only the true black, and add a soft shadow to ground it — so it reads on
+  cream, white or a photo, exactly like the painted birds elsewhere on the site.</p>
+
+  <div class="row">
+    <div class="card">
+      <h3>The raw MP4 (black background)</h3>
+      <div class="stage cream">
+        <video class="raw" id="src" src="uploads/animate_this_bird_image_for_a.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Keyed to transparent — over the cream page</h3>
+      <div class="stage cream">
+        <canvas class="keyed" id="c1"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-demo">
+    <div class="t">
+      <span class="kicker">brought to your door</span>
+      <h2>The animated bird, perched in a real layout.</h2>
+      <p class="note">Same canvas, dropped over a gradient — no box, no black edges.</p>
+    </div>
+    <canvas id="c2"></canvas>
+  </div>
+</div>
+
+<script>
+(function(){
+  var src = document.getElementById('src');
+  var canvases = [document.getElementById('c1'), document.getElementById('c2')];
+  var PW = 560, PH = 315;
+  var off = document.createElement('canvas'); off.width = PW; off.height = PH;
+  var offx = off.getContext('2d', { willReadFrequently:true });
+  var ctxs = canvases.map(function(c){ c.width = PW; c.height = PH; return c.getContext('2d'); });
+
+  function drawFrame(){
+    if (!(src.readyState >= 2 && src.videoWidth)) return false;
+    offx.drawImage(src, 0, 0, PW, PH);
+    var img = offx.getImageData(0, 0, PW, PH);
+    var d = img.data;
+    for (var i = 0; i < d.length; i += 4){
+      var r = d[i], g = d[i+1], b = d[i+2];
+      var m = r > g ? (r > b ? r : b) : (g > b ? g : b); // brightest channel
+      if (m < 8) { d[i+3] = 0; continue; }   // only true black is removed
+      var t = (m - 8) / 34; if (t > 1) t = 1; // ramp 8..42 -> solid
+      d[i+3] = (t * t * (3 - 2 * t)) * 255;   // smoothstep keeps the bird (incl. dark linework) opaque
+      // colours left untouched: faint dark edge acts as a natural outline on light backgrounds
+    }
+    ctxs.forEach(function(cx){ cx.putImageData(img, 0, 0); });
+    return true;
+  }
+  function tick(){ drawFrame(); requestAnimationFrame(tick); }
+  src.play().catch(function(){});
+  src.addEventListener('loadeddata', function(){ src.play().catch(function(){}); });
+  requestAnimationFrame(tick);
+  window.__bird = { draw: drawFrame, v: src };
+})();
+</script>
+</body>
+</html>

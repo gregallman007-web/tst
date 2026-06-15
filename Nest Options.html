@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Take Some Time — Nest Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:wght@300;400;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root{
+    --shell:#FBF6F3; --petal:#F1E2DC; --tealmist:#DDEAE6;
+    --blush:#C99B93; --euc:#8FB1AB; --euc-deep:#46665F;
+    --ink:#34302E; --grey:#6E6A66; --line:rgba(52,48,46,.12);
+    --shadow:0 1px 2px rgba(52,48,46,.05), 0 20px 50px -30px rgba(52,48,46,.4);
+    --radius:20px;
+  }
+  html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  body{ margin:0; background:var(--shell); color:var(--ink); font-family:'Nunito Sans',system-ui,sans-serif; line-height:1.62; }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 28px; }
+  svg{ overflow:visible; }
+
+  .head{ padding:84px 0 18px; }
+  .eyebrow{ font-size:12px; letter-spacing:.4em; text-transform:uppercase; color:var(--grey); font-weight:700; margin:0 0 20px; }
+  .head h1{ font-family:'Marcellus',serif; font-weight:400; font-size:clamp(32px,5vw,52px); line-height:1.05; margin:0 0 20px; max-width:20ch; }
+  .head p{ font-size:16.5px; color:#54504a; max-width:62ch; margin:0 0 12px; }
+  .head p.small{ font-size:14px; color:var(--grey); max-width:64ch; }
+
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; padding:40px 0 8px; }
+  @media (max-width:900px){ .grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .grid{ grid-template-columns:1fr; } }
+  .opt{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+  .opt .stage{ min-height:220px; display:grid; place-items:center; position:relative; }
+  .opt .stage.s1{ background:var(--shell); }
+  .opt .stage.s2{ background:linear-gradient(135deg,#E3ECE8,#F4E8E2); }
+  .opt .stage.s3{ background:var(--petal); }
+  .opt .stage.s4{ background:radial-gradient(130% 130% at 50% 22%, #EBF1EE, #CFE0DA); }
+  .opt .stage.s5{ background:linear-gradient(135deg,#F6ECE6,#EAD7CF); }
+  .opt .stage.s6{ background:var(--tealmist); }
+  .opt .num{ position:absolute; top:12px; left:15px; font-family:'Marcellus',serif; font-size:14px; color:var(--euc-deep); opacity:.6; }
+  .opt .tag{ position:absolute; top:13px; right:15px; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:4px 9px; border-radius:100px; background:rgba(255,255,255,.7); color:var(--euc-deep); backdrop-filter:blur(2px); }
+  .opt .wm{ font-family:'Marcellus',serif; font-size:13px; letter-spacing:2px; color:var(--ink); margin-top:6px; }
+  .opt .meta{ padding:18px 20px 20px; border-top:1px solid var(--line); }
+  .opt .meta h3{ font-family:'Marcellus',serif; font-weight:400; font-size:19px; margin:0 0 5px; }
+  .opt .meta p{ font-size:13px; color:#57524c; margin:0; }
+  .opt .meta .feat{ display:inline-block; margin-top:10px; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--blush); }
+
+  .foot{ padding:36px 0 110px; }
+  .note{ background:var(--euc-deep); color:#fff; border-radius:var(--radius); padding:40px 44px; box-shadow:var(--shadow); }
+  .note h2{ font-family:'Marcellus',serif; font-weight:400; font-size:28px; margin:0 0 10px; }
+  .note p{ color:rgba(255,255,255,.86); max-width:62ch; margin:0 0 8px; font-size:14.5px; }
+  .note b{ color:#fff; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gBlush" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1E2DC"/><stop offset="1" stop-color="#C99B93"/></linearGradient>
+  <radialGradient id="gEucMist" cx="0.35" cy="0.28" r="0.85"><stop offset="0" stop-color="#E6EFEC"/><stop offset="1" stop-color="#8FB1AB"/></radialGradient>
+</defs></svg>
+
+<header class="head wrap">
+  <p class="eyebrow">Take Some Time · Nest &amp; Eggs — mark studies</p>
+  <h1>Six ways to make the nest a nest.</h1>
+  <p>You're right — it needs to feel woven and alive, not like a bowl. Here are six treatments: denser
+  weaving, soft feathers tucked in, a looser rustic build, and a couple with a little chick peeking out.</p>
+  <p class="small">All on the locked palette. Pick one (or mix — e.g. the chick from 05 in the feathered nest
+  of 02) and I'll refine it into the final mark and rebuild the full kit.</p>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <!-- 01 DENSE WOVEN -->
+    <div class="opt">
+      <div class="stage s1">
+        <span class="num">01</span><span class="tag">No feathers</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Dense woven nest">
+          <g transform="translate(90 60) scale(1.65)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <path d="M-33 1 C-33 22 -16 30 0 30 C16 30 33 22 33 1 C22 10 -22 10 -33 1 Z" fill="#E7DAC9"/>
+            <path d="M33 -1 C36 -2 39 0 42 -2 M-33 -1 C-36 -2 -39 0 -42 -2 M19 -4 l2 -8 M-17 -4 l-2 -8 M5 -7 l1 -7 M-7 -7 l-1 -6 M11 -6 l2 -6" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".82"/>
+            <g stroke="#46665F" stroke-linecap="round" fill="none">
+              <path d="M-33 1 C-18 9 18 9 33 1" stroke-width="1.7"/>
+              <path d="M-30 5 C-15 15 15 15 30 5" stroke-width="1.3" opacity=".84"/>
+              <path d="M-26 9 C-12 18 12 18 26 9" stroke-width="1.15" opacity=".68"/>
+              <path d="M-20 14 C-9 21 9 21 20 14" stroke-width="1.05" opacity=".54"/>
+              <path d="M-12 18 C-5 22 5 22 12 18" stroke-width="1" opacity=".42"/>
+            </g>
+            <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".72">
+              <path d="M-24 4 C-18 10 -13 14 -8 19"/><path d="M-13 3 C-9 9 -5 14 -1 19"/><path d="M-2 2 C1 9 4 14 7 19"/>
+              <path d="M24 4 C18 10 13 14 8 19"/><path d="M13 3 C9 9 5 14 1 19"/><path d="M2 2 C-1 9 -4 14 -7 19"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Dense Weave</h3><p>Same idea, far more woven — five rim arcs and a full criss-cross of twigs. The most “proper nest” without adding anything new.</p></div>
+    </div>
+
+    <!-- 02 FEATHERED -->
+    <div class="opt">
+      <div class="stage s2">
+        <span class="num">02</span><span class="tag">Feathers</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Nest with feathers">
+          <g transform="translate(90 60) scale(1.65)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <!-- feathers tucked at rim -->
+            <g transform="translate(-24 -2) rotate(-26)">
+              <path d="M0 4 C-4 -2 -4 -12 0 -20 C4 -12 4 -2 0 4 Z" fill="#E7C7BE"/>
+              <path d="M0 3 L0 -18" stroke="#C99B93" stroke-width=".8"/>
+              <g stroke="#C99B93" stroke-width=".6" opacity=".7" fill="none"><path d="M0 -3 l-3 -3 M0 -3 l3 -3 M0 -8 l-3 -3 M0 -8 l3 -3 M0 -13 l-2.5 -2.5 M0 -13 l2.5 -2.5"/></g>
+            </g>
+            <g transform="translate(25 -3) rotate(24)">
+              <path d="M0 4 C-4 -2 -4 -12 0 -20 C4 -12 4 -2 0 4 Z" fill="#A7C4BD"/>
+              <path d="M0 3 L0 -18" stroke="#8FB1AB" stroke-width=".8"/>
+              <g stroke="#8FB1AB" stroke-width=".6" opacity=".7" fill="none"><path d="M0 -3 l-3 -3 M0 -3 l3 -3 M0 -8 l-3 -3 M0 -8 l3 -3 M0 -13 l-2.5 -2.5 M0 -13 l2.5 -2.5"/></g>
+            </g>
+            <path d="M-33 1 C-33 22 -16 30 0 30 C16 30 33 22 33 1 C22 10 -22 10 -33 1 Z" fill="#E7DAC9"/>
+            <path d="M33 -1 C36 -2 39 0 42 -2 M-33 -1 C-36 -2 -39 0 -42 -2 M5 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <g stroke="#46665F" stroke-linecap="round" fill="none">
+              <path d="M-33 1 C-18 9 18 9 33 1" stroke-width="1.7"/>
+              <path d="M-29 5 C-15 14 15 14 29 5" stroke-width="1.25" opacity=".82"/>
+              <path d="M-24 9 C-11 17 11 17 24 9" stroke-width="1.1" opacity=".62"/>
+            </g>
+            <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".68">
+              <path d="M-20 4 C-14 10 -9 14 -4 18"/><path d="M-7 3 C-3 9 1 13 4 18"/><path d="M20 4 C14 10 9 14 4 18"/><path d="M7 3 C3 9 -1 13 -4 18"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Feathered</h3><p>Two soft feathers tucked into the weave — one blush, one eucalyptus. Adds warmth and softness; reads instantly as “nest”.</p><span class="feat">★ with feathers</span></div>
+    </div>
+
+    <!-- 03 RUSTIC LOOSE -->
+    <div class="opt">
+      <div class="stage s3">
+        <span class="num">03</span><span class="tag">No feathers</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Rustic loose nest">
+          <g transform="translate(90 60) scale(1.6)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <path d="M-33 1 C-33 23 -15 31 0 31 C15 31 33 23 33 1 C22 11 -22 11 -33 1 Z" fill="#E6D7C2"/>
+            <!-- loose long twigs poking out -->
+            <g fill="none" stroke="#9a7d5e" stroke-width="1.2" stroke-linecap="round" opacity=".85">
+              <path d="M33 0 C39 -2 44 1 49 -3"/><path d="M-33 0 C-39 -2 -44 1 -49 -3"/>
+              <path d="M28 -3 C33 -7 36 -6 41 -10"/><path d="M-26 -3 C-31 -7 -34 -6 -39 -10"/>
+              <path d="M16 -5 l3 -10"/><path d="M-14 -5 l-3 -10"/><path d="M5 -8 l2 -9"/><path d="M-6 -8 l-1 -8"/>
+            </g>
+            <g stroke="#46665F" stroke-linecap="round" fill="none">
+              <path d="M-33 1 C-18 10 18 10 33 1" stroke-width="1.6"/>
+              <path d="M-29 6 C-15 15 15 15 29 6" stroke-width="1.2" opacity=".8"/>
+              <path d="M-22 11 C-10 19 10 19 22 11" stroke-width="1.05" opacity=".55"/>
+            </g>
+            <g stroke="#8a6f53" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".7">
+              <path d="M-25 3 C-17 11 -10 16 -3 21"/><path d="M25 3 C17 11 10 16 3 21"/><path d="M-9 2 C-4 10 2 15 6 21"/><path d="M9 2 C4 10 -2 15 -6 21"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Rustic &amp; Loose</h3><p>Longer twigs straying out at all angles — a wilder, hand-built nest. Warmest and most natural; least tidy.</p></div>
+    </div>
+
+    <!-- 04 SINGLE FEATHER -->
+    <div class="opt">
+      <div class="stage s4">
+        <span class="num">04</span><span class="tag">Feather</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Nest with one feather">
+          <g transform="translate(90 62) scale(1.6)">
+            <ellipse cx="-7" cy="-5" rx="6.6" ry="8.8" fill="url(#gBlush)"/>
+            <ellipse cx="6" cy="-3" rx="5.4" ry="7.2" fill="url(#gEucMist)"/>
+            <!-- one tall elegant feather standing in the nest -->
+            <g transform="translate(15 -6) rotate(18)">
+              <path d="M0 6 C-5 -3 -5 -18 0 -30 C5 -18 5 -3 0 6 Z" fill="#EAD3CB"/>
+              <path d="M0 4 L0 -27" stroke="#C99B93" stroke-width=".9"/>
+              <g stroke="#C99B93" stroke-width=".65" opacity=".75" fill="none"><path d="M0 -2 l-4 -4 M0 -2 l4 -4 M0 -8 l-4 -4 M0 -8 l4 -4 M0 -14 l-3.5 -3.5 M0 -14 l3.5 -3.5 M0 -20 l-3 -3 M0 -20 l3 -3"/></g>
+            </g>
+            <path d="M-33 1 C-33 22 -16 30 0 30 C16 30 33 22 33 1 C22 10 -22 10 -33 1 Z" fill="#E7DAC9"/>
+            <path d="M33 -1 C36 -2 39 0 42 -2 M-33 -1 C-36 -2 -39 0 -42 -2 M-17 -4 l-2 -8" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <g stroke="#46665F" stroke-linecap="round" fill="none">
+              <path d="M-33 1 C-18 9 18 9 33 1" stroke-width="1.7"/>
+              <path d="M-29 5 C-15 14 15 14 29 5" stroke-width="1.25" opacity=".82"/>
+              <path d="M-24 9 C-11 17 11 17 24 9" stroke-width="1.1" opacity=".62"/>
+            </g>
+            <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".68">
+              <path d="M-20 4 C-14 10 -9 14 -4 18"/><path d="M20 4 C14 10 9 14 4 18"/><path d="M-7 3 C-3 9 1 13 4 18"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Single Feather</h3><p>Eggs plus one upright feather — quieter and more refined than two. A single graceful accent.</p><span class="feat">★ with feather</span></div>
+    </div>
+
+    <!-- 05 CHICK -->
+    <div class="opt">
+      <div class="stage s5">
+        <span class="num">05</span><span class="tag">Chick</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Nest with a chick">
+          <g transform="translate(90 62) scale(1.6)">
+            <ellipse cx="-11" cy="-4" rx="6.2" ry="8.2" fill="url(#gBlush)"/>
+            <!-- chick peeking -->
+            <g transform="translate(4 -7)">
+              <g stroke="#caa884" stroke-width="1.05" stroke-linecap="round"><path d="M-2.4 -7 l-1.4 -4 M0 -8 l0 -4.4 M2.4 -7 l1.4 -4"/></g>
+              <circle cx="0" cy="0" r="8.4" fill="#EFE2CE"/>
+              <ellipse cx="-4.6" cy="3.4" rx="2.3" ry="1.7" fill="#E7C7BE" opacity=".7"/>
+              <ellipse cx="4.6" cy="3.4" rx="2.3" ry="1.7" fill="#E7C7BE" opacity=".7"/>
+              <circle cx="-2.7" cy="-1" r="1.5" fill="#34302E"/>
+              <circle cx="2.7" cy="-1" r="1.5" fill="#34302E"/>
+              <path d="M0 1.6 l-2.4 2 l2.4 1.5 l2.4 -1.5 Z" fill="#C99B93"/>
+            </g>
+            <path d="M-33 1 C-33 22 -16 30 0 30 C16 30 33 22 33 1 C22 10 -22 10 -33 1 Z" fill="#E7DAC9"/>
+            <path d="M33 -1 C36 -2 39 0 42 -2 M-33 -1 C-36 -2 -39 0 -42 -2 M19 -4 l2 -8 M-17 -4 l-2 -8" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <g stroke="#46665F" stroke-linecap="round" fill="none">
+              <path d="M-33 1 C-18 9 18 9 33 1" stroke-width="1.7"/>
+              <path d="M-29 5 C-15 14 15 14 29 5" stroke-width="1.25" opacity=".82"/>
+              <path d="M-24 9 C-11 17 11 17 24 9" stroke-width="1.1" opacity=".62"/>
+            </g>
+            <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".68">
+              <path d="M-20 4 C-14 10 -9 14 -4 18"/><path d="M20 4 C14 10 9 14 4 18"/><path d="M-7 3 C-3 9 1 13 4 18"/><path d="M7 3 C3 9 -1 13 -4 18"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Little Chick</h3><p>One egg, one chick peeking over the rim — the new arrival. The most charming and most overtly “new baby”.</p><span class="feat">★ with chick</span></div>
+    </div>
+
+    <!-- 06 CHICK & FEATHER -->
+    <div class="opt">
+      <div class="stage s6">
+        <span class="num">06</span><span class="tag">Chick + feather</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Nest with chick and feather">
+          <g transform="translate(90 62) scale(1.6)">
+            <ellipse cx="-12" cy="-4" rx="6" ry="8" fill="url(#gBlush)"/>
+            <!-- feather behind, leaning right -->
+            <g transform="translate(17 -5) rotate(22)">
+              <path d="M0 5 C-4 -2 -4 -15 0 -25 C4 -15 4 -2 0 5 Z" fill="#A7C4BD"/>
+              <path d="M0 3 L0 -22" stroke="#8FB1AB" stroke-width=".8"/>
+              <g stroke="#8FB1AB" stroke-width=".6" opacity=".7" fill="none"><path d="M0 -3 l-3 -3 M0 -3 l3 -3 M0 -8 l-3 -3 M0 -8 l3 -3 M0 -13 l-2.5 -2.5 M0 -13 l2.5 -2.5"/></g>
+            </g>
+            <!-- chick -->
+            <g transform="translate(2 -7)">
+              <g stroke="#caa884" stroke-width="1.05" stroke-linecap="round"><path d="M-2.4 -7 l-1.4 -4 M0 -8 l0 -4.4 M2.4 -7 l1.4 -4"/></g>
+              <circle cx="0" cy="0" r="8.2" fill="#EFE2CE"/>
+              <ellipse cx="-4.5" cy="3.3" rx="2.2" ry="1.6" fill="#E7C7BE" opacity=".7"/>
+              <ellipse cx="4.5" cy="3.3" rx="2.2" ry="1.6" fill="#E7C7BE" opacity=".7"/>
+              <circle cx="-2.6" cy="-1" r="1.45" fill="#34302E"/>
+              <circle cx="2.6" cy="-1" r="1.45" fill="#34302E"/>
+              <path d="M0 1.6 l-2.3 1.9 l2.3 1.5 l2.3 -1.5 Z" fill="#C99B93"/>
+            </g>
+            <path d="M-33 1 C-33 22 -16 30 0 30 C16 30 33 22 33 1 C22 10 -22 10 -33 1 Z" fill="#E7DAC9"/>
+            <path d="M33 -1 C36 -2 39 0 42 -2 M-33 -1 C-36 -2 -39 0 -42 -2 M-17 -4 l-2 -8" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <g stroke="#46665F" stroke-linecap="round" fill="none">
+              <path d="M-33 1 C-18 9 18 9 33 1" stroke-width="1.7"/>
+              <path d="M-29 5 C-15 14 15 14 29 5" stroke-width="1.25" opacity=".82"/>
+              <path d="M-24 9 C-11 17 11 17 24 9" stroke-width="1.1" opacity=".62"/>
+            </g>
+            <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".68">
+              <path d="M-20 4 C-14 10 -9 14 -4 18"/><path d="M20 4 C14 10 9 14 4 18"/><path d="M-7 3 C-3 9 1 13 4 18"/><path d="M7 3 C3 9 -1 13 -4 18"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Chick &amp; Feather</h3><p>The full story — a downy chick, a soft feather, a single egg still to hatch. Cosiest and most narrative.</p><span class="feat">★ chick + feather</span></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <div class="note">
+    <h2>Tell me which nest</h2>
+    <p>Point at one — or mix elements (the chick from 05 dropped into the feathered nest of 02, say).
+    Once chosen I'll refine the weave, balance it at small sizes, and rebuild the lockups, favicon and the Style Board.</p>
+    <p style="opacity:.8;font-size:13px;">Worth knowing: <b>more detail = less crisp at tiny sizes</b> (favicon, stamp). If you love a busy one, I'll also make a simplified “small-size” version of it.</p>
+  </div>
+</footer>
+
+</body>
+</html>

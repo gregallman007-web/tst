@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Take Some Time — Brand Style Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root{
+    --shell:#FBF6F3; --petal:#F1E2DC; --tealmist:#DDEAE6;
+    --blush:#C99B93; --euc:#8FB1AB; --euc-deep:#46665F;
+    --ink:#34302E; --grey:#6E6A66; --line:rgba(52,48,46,.12);
+    --shadow:0 1px 2px rgba(52,48,46,.05), 0 20px 50px -30px rgba(52,48,46,.4);
+    --radius:20px;
+  }
+  html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth; }
+  body{ margin:0; background:var(--shell); color:var(--ink); font-family:'Nunito Sans',system-ui,sans-serif; line-height:1.62; }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 28px; }
+  svg{ overflow:visible; }
+  img{ display:block; max-width:100%; }
+
+  /* ---- masthead ---- */
+  .mast{ background:linear-gradient(150deg,#E6EEEA 0%, #F4E9E3 60%, #EEDDD5 100%); padding:84px 0 70px; border-bottom:1px solid var(--line); }
+  .mast .eyebrow{ font-size:12px; letter-spacing:.42em; text-transform:uppercase; color:var(--euc-deep); font-weight:700; margin:0 0 26px; }
+  .mast .lockup{ display:flex; align-items:center; gap:30px; flex-wrap:wrap; }
+  .mast h1{ font-family:'Marcellus',serif; font-weight:400; font-size:clamp(36px,6vw,64px); line-height:1.02; margin:0; letter-spacing:.01em; }
+  .mast p{ font-size:18px; color:#4f4a44; max-width:60ch; margin:26px 0 0; }
+  .mast .meta{ display:flex; flex-wrap:wrap; gap:10px 32px; margin-top:30px; font-size:13px; color:var(--euc-deep); font-weight:700; letter-spacing:.02em; }
+  .mast .meta span{ display:flex; align-items:center; gap:8px; }
+  .mast .meta i{ width:6px; height:6px; border-radius:50%; background:var(--blush); }
+
+  /* ---- section scaffold ---- */
+  section.block{ padding:66px 0 8px; }
+  .sec-no{ font-family:'Marcellus',serif; font-size:14px; color:var(--blush); letter-spacing:.18em; }
+  .sec-h{ font-family:'Marcellus',serif; font-weight:400; font-size:30px; margin:6px 0 6px; }
+  .sec-lead{ font-size:15.5px; color:#54504a; max-width:64ch; margin:0 0 30px; }
+  .head-row{ display:flex; align-items:baseline; gap:18px; border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:30px; }
+  .head-row .sec-h{ margin:0; } .head-row .sec-no{ margin-top:4px; }
+  .head-row p{ margin:0 0 0 auto; font-size:13px; color:var(--grey); max-width:40ch; text-align:right; }
+  @media (max-width:720px){ .head-row{ flex-wrap:wrap; } .head-row p{ margin-left:0; text-align:left; flex-basis:100%; } }
+
+  .card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+
+  /* ---- logo system ---- */
+  .logo-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:18px; }
+  @media (max-width:820px){ .logo-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:520px){ .logo-grid{ grid-template-columns:1fr; } }
+  .logo-cell{ border-radius:16px; min-height:200px; display:grid; place-items:center; position:relative; border:1px solid var(--line); padding:24px; }
+  .logo-cell.primary{ background:var(--shell); grid-row:span 2; min-height:auto; }
+  .logo-cell.dark{ background:var(--euc-deep); border-color:transparent; }
+  .logo-cell.mist{ background:radial-gradient(130% 130% at 50% 18%, #EBF1EE, #CFE0DA); }
+  .logo-cell.petal{ background:linear-gradient(135deg,#F6ECE6,#EAD7CF); }
+  .lc-lab{ position:absolute; top:12px; left:14px; font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--grey); }
+  .logo-cell.dark .lc-lab{ color:rgba(255,255,255,.55); }
+  .rules{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+  @media (max-width:620px){ .rules{ grid-template-columns:1fr; } }
+  .rule{ padding:20px 22px; }
+  .rule h4{ font-family:'Marcellus',serif; font-weight:400; font-size:16px; margin:0 0 6px; }
+  .rule p{ font-size:13px; color:#56514b; margin:0; }
+
+  /* ---- colour ---- */
+  .swatches{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media (max-width:820px){ .swatches{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:480px){ .swatches{ grid-template-columns:1fr 1fr; } }
+  .sw{ border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); background:#fff; }
+  .sw .chip{ height:96px; }
+  .sw .meta{ padding:13px 15px; }
+  .sw .nm{ font-weight:700; font-size:13.5px; }
+  .sw .hex{ font-size:12px; color:var(--grey); letter-spacing:.04em; }
+  .sw .role{ font-size:11.5px; color:var(--grey); margin-top:4px; }
+  .grads{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px; }
+  @media (max-width:720px){ .grads{ grid-template-columns:1fr; } }
+  .grad{ border-radius:14px; min-height:104px; box-shadow:var(--shadow); border:1px solid var(--line); display:flex; align-items:flex-end; padding:14px; }
+  .grad span{ font-size:11.5px; font-weight:700; color:#5a544e; background:rgba(255,255,255,.66); padding:4px 10px; border-radius:100px; backdrop-filter:blur(2px); }
+
+  /* ---- type ---- */
+  .type-card{ padding:30px 32px; }
+  .type-row{ display:flex; align-items:baseline; gap:20px; flex-wrap:wrap; padding:18px 0; border-bottom:1px solid var(--line); }
+  .type-row:last-child{ border-bottom:0; }
+  .type-row .tag{ width:150px; flex:none; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--grey); }
+  .type-row .spec{ flex:1; min-width:240px; }
+  .sp-display{ font-family:'Marcellus',serif; font-weight:400; color:var(--ink); line-height:1.04; }
+  .sp-body{ font-family:'Nunito Sans',sans-serif; }
+  .sp-script{ font-family:'Caveat',cursive; color:var(--euc-deep); }
+  .glyphs{ font-family:'Marcellus',serif; font-size:24px; color:var(--euc-deep); letter-spacing:.06em; }
+  .scale-note{ font-size:11.5px; color:var(--grey); margin-top:6px; }
+
+  /* ---- photography ---- */
+  .photo-hero{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+  .photo-hero img{ width:100%; height:440px; object-fit:cover; }
+  .photo-hero .ov{ position:absolute; inset:0; background:linear-gradient(90deg, rgba(40,48,44,.46), rgba(40,48,44,.04) 60%); display:flex; align-items:flex-end; padding:40px; }
+  .photo-hero .ov .q{ color:#fff; max-width:30ch; }
+  .photo-hero .ov .q .k{ font-family:'Caveat',cursive; font-size:26px; opacity:.9; }
+  .photo-hero .ov .q h3{ font-family:'Marcellus',serif; font-weight:400; font-size:30px; margin:4px 0 0; line-height:1.1; }
+  .photo-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px; }
+  @media (max-width:720px){ .photo-grid{ grid-template-columns:1fr; } }
+  .photo-grid figure{ margin:0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow); position:relative; }
+  .photo-grid img{ width:100%; height:200px; object-fit:cover; }
+  .photo-grid figcaption{ position:absolute; left:12px; bottom:12px; font-size:11px; font-weight:700; letter-spacing:.04em; color:#fff; background:rgba(40,48,44,.46); padding:5px 11px; border-radius:100px; backdrop-filter:blur(2px); }
+  .do-dont{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+  @media (max-width:620px){ .do-dont{ grid-template-columns:1fr; } }
+  .dd{ padding:20px 22px; border-radius:14px; }
+  .dd.do{ background:var(--tealmist); } .dd.dont{ background:#F3E3DE; }
+  .dd h4{ margin:0 0 10px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+  .dd.do h4{ color:#3f5d56; } .dd.dont h4{ color:#9c5b4e; }
+  .dd ul{ margin:0; padding-left:18px; font-size:13.5px; color:#54504a; }
+  .dd li{ margin-bottom:6px; }
+
+  /* ---- motif ---- */
+  .motif-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media (max-width:820px){ .motif-grid{ grid-template-columns:1fr 1fr; } }
+  .motif{ border-radius:14px; min-height:150px; display:grid; place-items:center; position:relative; border:1px solid var(--line); background:#fff; padding:18px; }
+  .motif .lab{ position:absolute; bottom:11px; left:13px; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); }
+
+  /* ---- UI components ---- */
+  .ui-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:820px){ .ui-grid{ grid-template-columns:1fr; } }
+  .ui-card{ padding:26px; }
+  .ui-card h4{ font-family:'Marcellus',serif; font-weight:400; font-size:16px; margin:0 0 18px; }
+  .btn{ display:inline-flex; align-items:center; gap:9px; border-radius:100px; font-family:'Nunito Sans',sans-serif; font-weight:700; font-size:14.5px; padding:13px 24px; border:1.5px solid transparent; line-height:1; cursor:default; text-decoration:none; }
+  .btn--primary{ background:var(--euc-deep); color:#fff; }
+  .btn--whatsapp{ background:var(--euc); color:#fff; }
+  .btn--secondary{ background:transparent; color:var(--euc-deep); border-color:var(--euc-deep); }
+  .btn-row{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+  .trust{ display:flex; flex-wrap:wrap; gap:8px 16px; font-size:12px; font-weight:700; color:var(--euc-deep); background:var(--tealmist); border-radius:12px; padding:13px 16px; align-items:center; }
+  .trust i{ width:4px; height:4px; border-radius:50%; background:var(--euc); }
+  .svc{ border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  .svc img{ width:100%; height:150px; object-fit:cover; }
+  .svc__b{ padding:18px 20px 20px; }
+  .svc__b h5{ font-family:'Marcellus',serif; font-weight:400; font-size:21px; margin:0 0 5px; }
+  .svc__b p{ font-size:13px; color:#57524c; margin:0 0 14px; }
+  .svc__foot{ display:flex; align-items:baseline; justify-content:space-between; }
+  .svc__price{ font-family:'Marcellus',serif; font-size:19px; color:var(--euc-deep); }
+  .svc__more{ font-size:12.5px; font-weight:700; color:var(--blush); }
+  .link-demo{ font-size:14px; color:#54504a; }
+  .link-demo a{ color:var(--euc-deep); text-decoration:none; border-bottom:1.5px solid var(--euc); padding-bottom:1px; font-weight:600; }
+
+  /* ---- voice ---- */
+  .voice{ display:grid; grid-template-columns:1.1fr 1fr; gap:18px; }
+  @media (max-width:820px){ .voice{ grid-template-columns:1fr; } }
+  .voice-quote{ background:var(--euc-deep); color:#fff; border-radius:var(--radius); padding:38px 40px; display:flex; flex-direction:column; justify-content:center; }
+  .voice-quote .k{ font-family:'Caveat',cursive; font-size:24px; color:var(--tealmist); }
+  .voice-quote blockquote{ font-family:'Marcellus',serif; font-weight:400; font-size:25px; line-height:1.3; margin:10px 0 0; }
+  .voice-card{ padding:28px 30px; }
+  .voice-card h4{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); margin:0 0 12px; }
+  .voice-card .pair{ display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+  @media (max-width:520px){ .voice-card .pair{ grid-template-columns:1fr; } }
+  .voice-card .pair > div h5{ margin:0 0 8px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+  .voice-card .we h5{ color:#3f5d56; } .voice-card .not h5{ color:#9c5b4e; }
+  .voice-card ul{ margin:0 0 14px; padding-left:17px; font-size:13.5px; color:#54504a; }
+  .voice-card li{ margin-bottom:6px; }
+
+  footer.foot{ padding:60px 0 110px; }
+  .endnote{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:42px 46px; display:flex; gap:28px; align-items:center; flex-wrap:wrap; }
+  .endnote .t{ flex:1; min-width:280px; }
+  .endnote h2{ font-family:'Marcellus',serif; font-weight:400; font-size:28px; margin:0 0 8px; }
+  .endnote p{ color:#54504a; margin:0; max-width:54ch; font-size:14.5px; }
+</style>
+</head>
+<body>
+
+<!-- gradient defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gBlush" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1E2DC"/><stop offset="1" stop-color="#C99B93"/></linearGradient>
+  <radialGradient id="gEucMist" cx="0.35" cy="0.28" r="0.85"><stop offset="0" stop-color="#E6EFEC"/><stop offset="1" stop-color="#8FB1AB"/></radialGradient>
+</defs></svg>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Brand Style Board</p>
+    <div class="lockup">
+      <svg width="150" height="150" viewBox="0 0 150 150" aria-label="Take Some Time nest and eggs mark">
+        <g transform="translate(75 60) scale(1.7)">
+          <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+          <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+          <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+          <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/><path d="M-29 5 C-15 14 15 14 29 5" fill="none" stroke="#46665F" stroke-width="1.25" stroke-linecap="round" opacity=".82"/>
+          <path d="M-25 9 C-12 17 12 17 25 9" fill="none" stroke="#46665F" stroke-width="1.15" stroke-linecap="round" opacity=".66"/>
+          <path d="M-18 14 C-8 20 8 20 18 14" fill="none" stroke="#46665F" stroke-width="1.05" stroke-linecap="round" opacity=".5"/>
+          <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".7"><path d="M-22 4 C-16 10 -11 14 -6 18"/><path d="M-9 3 C-5 9 -1 13 3 18"/><path d="M9 3 C5 9 1 13 -3 18"/><path d="M22 4 C16 10 11 14 6 18"/></g>
+        </g>
+      </svg>
+      <div>
+        <h1>Take Some Time</h1>
+        <div class="meta">
+          <span><i></i>Direction 03 · Blush &amp; Eucalyptus</span>
+          <span><i></i>Mark · Nest &amp; Eggs</span>
+          <span><i></i>Mobile pregnancy &amp; postnatal massage</span>
+        </div>
+      </div>
+    </div>
+    <p>The visual system for the brand, in one place — logo, colour, type, photography, motif, components
+    and voice. This is the reference the website (and everything else) is built from.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ 01 LOGO ============ -->
+  <section class="block" id="logo">
+    <div class="head-row">
+      <span class="sec-no">01</span>
+      <h2 class="sec-h">The logo</h2>
+      <p>Nest &amp; Eggs — a woven nest holding two eggs, mother and baby. Symbolic, timeless, embosses beautifully.</p>
+    </div>
+    <div class="logo-grid">
+      <div class="logo-cell primary card" style="box-shadow:none;">
+        <span class="lc-lab">Primary lockup</span>
+        <svg width="300" height="250" viewBox="0 0 340 268" aria-label="primary lockup">
+          <g transform="translate(170 70) scale(1.5)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/><path d="M-29 5 C-15 14 15 14 29 5" fill="none" stroke="#46665F" stroke-width="1.25" stroke-linecap="round" opacity=".82"/>
+            <path d="M-25 9 C-12 17 12 17 25 9" fill="none" stroke="#46665F" stroke-width="1.15" stroke-linecap="round" opacity=".66"/>
+            <path d="M-18 14 C-8 20 8 20 18 14" fill="none" stroke="#46665F" stroke-width="1.05" stroke-linecap="round" opacity=".5"/>
+            <g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".7"><path d="M-22 4 C-16 10 -11 14 -6 18"/><path d="M-9 3 C-5 9 -1 13 3 18"/><path d="M9 3 C5 9 1 13 -3 18"/><path d="M22 4 C16 10 11 14 6 18"/></g>
+          </g>
+          <text x="170" y="190" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#34302E" letter-spacing="3">TAKE SOME TIME</text>
+          <line x1="116" y1="208" x2="224" y2="208" stroke="#8FB1AB" stroke-width="1.2"/>
+          <text x="170" y="228" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="10" fill="#6E6A66" letter-spacing="2">PREGNANCY &amp; POSTNATAL MASSAGE</text>
+        </svg>
+      </div>
+      <div class="logo-cell dark">
+        <span class="lc-lab">Reversed</span>
+        <svg width="190" height="92" viewBox="0 0 210 92" aria-label="reversed">
+          <g transform="translate(40 44) scale(0.92)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="#E7C7BE"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="#A7C4BD"/>
+            <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#fff" stroke-width="1.45" stroke-linecap="round" opacity=".92"/><path d="M32 0 l6 -2 M-32 0 l-6 -2 M17 -4 l2 -7 M-15 -4 l-2 -7" fill="none" stroke="#9FBDB6" stroke-width="1.1" stroke-linecap="round" opacity=".9"/>
+            <path d="M-25 9 C-12 17 12 17 25 9" fill="none" stroke="#9FBDB6" stroke-width="1.2" stroke-linecap="round"/><path d="M-18 13 C-8 19 8 19 18 13" fill="none" stroke="#9FBDB6" stroke-width="1.05" stroke-linecap="round" opacity=".72"/>
+          </g>
+          <text x="80" y="40" font-family="Marcellus,serif" font-size="14.5" fill="#fff" letter-spacing="1.5">take some</text>
+          <text x="80" y="59" font-family="Marcellus,serif" font-size="14.5" fill="#8FB1AB" letter-spacing="3">time</text>
+        </svg>
+      </div>
+      <div class="logo-cell petal">
+        <span class="lc-lab">Favicon · avatar</span>
+        <svg width="78" height="78" viewBox="0 0 60 60" aria-label="favicon">
+          <g transform="translate(30 28) scale(0.86)">
+            <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+            <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+            <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.8" stroke-linecap="round"/><path d="M-28 5 C-15 14 15 14 28 5" fill="none" stroke="#46665F" stroke-width="1.3" stroke-linecap="round" opacity=".78"/><path d="M-20 10 C-9 18 9 18 20 10" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".56"/><g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".66"><path d="M-15 4 C-10 10 -5 14 -1 18"/><path d="M15 4 C10 10 5 14 1 18"/></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="rules">
+      <div class="rule card"><h4>Clear space</h4><p>Keep a margin of at least the height of one egg on all sides. Never crowd the mark with text or other elements.</p></div>
+      <div class="rule card"><h4>Minimum size &amp; don'ts</h4><p>Mark no smaller than 22&nbsp;px tall; full lockup no smaller than 120&nbsp;px wide. Don't recolour, stretch, rotate, or add shadows.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 02 COLOUR ============ -->
+  <section class="block" id="colour">
+    <div class="head-row">
+      <span class="sec-no">02</span>
+      <h2 class="sec-h">Colour</h2>
+      <p>Warm neutrals lead; eucalyptus carries it; blush is the single accent. On green, text is cream — never blush.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#FBF6F3; border-bottom:1px solid var(--line);"></div><div class="meta"><div class="nm">Shell</div><div class="hex">#FBF6F3</div><div class="role">Primary background</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F1E2DC;"></div><div class="meta"><div class="nm">Petal</div><div class="hex">#F1E2DC</div><div class="role">Soft section background</div></div></div>
+      <div class="sw"><div class="chip" style="background:#DDEAE6;"></div><div class="meta"><div class="nm">Teal mist</div><div class="hex">#DDEAE6</div><div class="role">Pale eucalyptus panels</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C99B93;"></div><div class="meta"><div class="nm">Blush rose</div><div class="hex">#C99B93</div><div class="role">Accent · light bg only</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8FB1AB;"></div><div class="meta"><div class="nm">Eucalyptus</div><div class="hex">#8FB1AB</div><div class="role">Secondary · highlights</div></div></div>
+      <div class="sw"><div class="chip" style="background:#46665F;"></div><div class="meta"><div class="nm">Deep eucalyptus</div><div class="hex">#46665F</div><div class="role">Primary dark · buttons</div></div></div>
+      <div class="sw"><div class="chip" style="background:#34302E;"></div><div class="meta"><div class="nm">Charcoal</div><div class="hex">#34302E</div><div class="role">Headings &amp; body text</div></div></div>
+      <div class="sw"><div class="chip" style="background:#6E6A66;"></div><div class="meta"><div class="nm">Warm grey</div><div class="hex">#6E6A66</div><div class="role">Muted / secondary text</div></div></div>
+    </div>
+    <div class="grads">
+      <div class="grad" style="background:linear-gradient(135deg,#DCE6E1,#F0E2DC);"><span>Blush ↔ eucalyptus wash</span></div>
+      <div class="grad" style="background:radial-gradient(120% 120% at 35% 28%, #E6EFEC, #8FB1AB);"><span>Eucalyptus mist · radial</span></div>
+      <div class="grad" style="background:linear-gradient(135deg,#F1E2DC,#C99B93);"><span>Blush rose · linear</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 03 TYPE ============ -->
+  <section class="block" id="type">
+    <div class="head-row">
+      <span class="sec-no">03</span>
+      <h2 class="sec-h">Typography</h2>
+      <p>A classic serif for warmth and authority, a clean humanist sans for clarity, and a handwritten note used sparingly.</p>
+    </div>
+    <div class="type-card card">
+      <div class="type-row">
+        <div class="tag">Display<br>Marcellus</div>
+        <div class="spec">
+          <div class="sp-display" style="font-size:46px;">A proper pause, brought to your door</div>
+          <div class="scale-note">Headlines, the wordmark, prices. Title case for headings; letter-spaced caps for the logo. Sizes 28–64&nbsp;px.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Body<br>Nunito Sans</div>
+        <div class="spec">
+          <div class="sp-body" style="font-size:17px; color:#4f4a44; max-width:54ch;">Finding an hour for yourself in the middle of it all can feel impossible — which is rather the point of what I do. I bring the couch, the towels and the oils; you bring an hour to switch off.</div>
+          <div class="scale-note">Weights 300 / 400 / 600 / 700. Body copy 16–18&nbsp;px, line-height ~1.6. Labels in 600–700, letter-spaced.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Accent<br>Caveat</div>
+        <div class="spec">
+          <div class="sp-script" style="font-size:34px;">a little nest of calm</div>
+          <div class="scale-note">A warm, personal touch — pull-quotes, captions, a signature. Used sparingly, never for paragraphs.</div>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Glyphs</div>
+        <div class="spec"><div class="glyphs">Aa Gg Mm Tt &nbsp;·&nbsp; £75 · 60 min &nbsp;·&nbsp; from 12 weeks</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 PHOTOGRAPHY ============ -->
+  <section class="block" id="photography">
+    <div class="head-row">
+      <span class="sec-no">04</span>
+      <h2 class="sec-h">Photography</h2>
+      <p>Warm natural light, real rest, cream and skin tones. Calm over clinical — always.</p>
+    </div>
+    <div class="photo-hero">
+      <img src="images/hero-prenatal.jpg" alt="A pregnant woman resting on a treatment couch during a calm, candle-lit massage" />
+      <div class="ov"><div class="q"><span class="k">the feeling we're after</span><h3>Unhurried, warm, and entirely her own.</h3></div></div>
+    </div>
+    <div class="photo-grid">
+      <figure><img src="images/hot-stone.jpg" alt="Hot stone massage on white towels" /><figcaption>Soft daylight · white linen</figcaption></figure>
+      <figure><img src="images/stone-hands.jpg" alt="Therapist's hands holding a warm massage stone" /><figcaption>Close, gentle, human</figcaption></figure>
+      <figure><img src="images/baby.jpg" alt="A baby during a calm postnatal moment at home" /><figcaption>Postnatal · tender</figcaption></figure>
+    </div>
+    <div class="do-dont">
+      <div class="dd do">
+        <h4>Do</h4>
+        <ul>
+          <li>Warm, soft natural light — morning or golden</li>
+          <li>Cream, white, linen and skin; calm faces, eyes resting</li>
+          <li>Real, in-the-moment; candles, oils, a home setting</li>
+          <li>Generous negative space for headlines to sit in</li>
+        </ul>
+      </div>
+      <div class="dd dont">
+        <h4>Avoid</h4>
+        <ul>
+          <li>Cold, clinical or harsh on-camera flash</li>
+          <li>Bright primary colours (red gym kit, blue scrubs)</li>
+          <li>Stocky, over-posed “spa cliché” staging</li>
+          <li>Heavy filters or oversaturated skin tones</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 MOTIF ============ -->
+  <section class="block" id="motif">
+    <div class="head-row">
+      <span class="sec-no">05</span>
+      <h2 class="sec-h">Motif &amp; texture</h2>
+      <p>Pieces of the logo, reused — eggs as bullets, the nest curve as a divider, woven lines as quiet detail.</p>
+    </div>
+    <div class="motif-grid">
+      <div class="motif">
+        <svg width="80" height="80" viewBox="0 0 80 80" aria-label="eggs">
+          <ellipse cx="34" cy="38" rx="11" ry="14.5" fill="url(#gBlush)"/>
+          <ellipse cx="50" cy="42" rx="8.5" ry="11.5" fill="url(#gEucMist)"/>
+        </svg>
+        <span class="lab">Two eggs · mother &amp; baby</span>
+      </div>
+      <div class="motif">
+        <svg width="110" height="70" viewBox="0 0 110 70" aria-label="nest divider">
+          <path d="M12 26 C40 52 70 52 98 26" fill="none" stroke="#46665F" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 33 C44 50 66 50 88 33" fill="none" stroke="#8FB1AB" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <span class="lab">Nest curve · divider</span>
+      </div>
+      <div class="motif">
+        <svg width="92" height="70" viewBox="0 0 92 70" aria-label="woven texture">
+          <g stroke="#46665F" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".8">
+            <path d="M10 26 C30 40 62 40 82 26"/><path d="M14 34 C32 46 60 46 78 34"/><path d="M20 42 C34 50 58 50 72 42"/>
+          </g>
+          <g stroke="#8a6f53" stroke-width="1.2" stroke-linecap="round" opacity=".7"><line x1="30" y1="26" x2="34" y2="34"/><line x1="46" y1="27" x2="48" y2="36"/><line x1="62" y1="26" x2="58" y2="34"/></g>
+        </svg>
+        <span class="lab">Woven nest texture</span>
+      </div>
+      <div class="motif" style="background:radial-gradient(120% 120% at 35% 28%, #E6EFEC, #8FB1AB);">
+        <svg width="80" height="80" viewBox="0 0 80 80" aria-label="egg bullet on green">
+          <ellipse cx="40" cy="40" rx="12" ry="16" fill="#fff" opacity=".92"/>
+        </svg>
+        <span class="lab" style="color:rgba(255,255,255,.8)">Egg · on gradient</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 COMPONENTS ============ -->
+  <section class="block" id="components">
+    <div class="head-row">
+      <span class="sec-no">06</span>
+      <h2 class="sec-h">Components</h2>
+      <p>How the system behaves in the wild — buttons, trust, service cards and links.</p>
+    </div>
+    <div class="ui-grid">
+      <div class="ui-card card">
+        <h4>Buttons &amp; trust</h4>
+        <div class="btn-row">
+          <span class="btn btn--primary">Book a visit</span>
+          <span class="btn btn--secondary">See services</span>
+        </div>
+        <div class="btn-row">
+          <span class="btn btn--whatsapp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.7 4.3 3.7 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3l-1.6-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.3.2-.4 0-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.5z"/></svg> Message on WhatsApp</span>
+        </div>
+        <div class="trust">
+          <span>15+ years' experience</span><i></i>
+          <span>City &amp; Guilds Level 3</span><i></i>
+          <span>Fully insured</span><i></i>
+          <span>Home visits · mid-Essex</span>
+        </div>
+        <p class="link-demo" style="margin-top:18px;">Inline links look like <a href="#components">a gentle eucalyptus underline</a> — never bright blue.</p>
+      </div>
+      <div class="ui-card card">
+        <h4>Service card</h4>
+        <div class="svc">
+          <img src="images/hot-stone.jpg" alt="Hot stone massage" />
+          <div class="svc__b">
+            <h5>Hot stone massage</h5>
+            <p>Heated stones to melt away tension — postnatal only.</p>
+            <div class="svc__foot"><span class="svc__price">£75 · 60 min</span><span class="svc__more">Learn more →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 VOICE ============ -->
+  <section class="block" id="voice">
+    <div class="head-row">
+      <span class="sec-no">07</span>
+      <h2 class="sec-h">Voice &amp; tone</h2>
+      <p>Like a trusted friend who happens to be an expert. Warm, calm, quietly reassuring.</p>
+    </div>
+    <div class="voice">
+      <div class="voice-quote">
+        <span class="k">the tone, in one line</span>
+        <blockquote>“Everyone asks how the baby's getting on. Far fewer people ask how you're doing.”</blockquote>
+      </div>
+      <div class="voice-card card">
+        <h4>Principles</h4>
+        <div class="pair">
+          <div class="we">
+            <h5>We sound</h5>
+            <ul><li>Warm &amp; unhurried</li><li>Plain British English</li><li>Gently witty</li><li>Spoken to <em>her</em>, not about a service</li></ul>
+          </div>
+          <div class="not">
+            <h5>We don't</h5>
+            <ul><li>Clinical or jargon-y</li><li>Salesy or shouty</li><li>Over-promising / “luxury” clichés</li><li>Exclamation marks everywhere</li></ul>
+          </div>
+        </div>
+        <p style="font-size:13.5px; color:#54504a; margin:4px 0 0;"><b>Example —</b> “An hour that's entirely your own. I bring everything; you just have to lie down.”</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot wrap">
+  <div class="endnote">
+    <svg width="64" height="64" viewBox="0 0 60 60" aria-label="mark" style="flex:none;">
+      <g transform="translate(30 28) scale(0.86)">
+        <ellipse cx="-6" cy="-6" rx="7" ry="9.2" fill="url(#gBlush)"/>
+        <ellipse cx="7.5" cy="-3" rx="5.6" ry="7.4" fill="url(#gEucMist)"/>
+        <path d="M-32 2 C-32 21 -16 29 0 29 C16 29 32 21 32 2 C21 9 -21 9 -32 2 Z" fill="#E7DAC9"/><path d="M32 0 C35 -1 37 1 40 -1 M-32 0 C-35 -1 -37 1 -40 -1 M18 -4 l2 -8 M-16 -4 l-2 -8 M4 -7 l1 -7" fill="none" stroke="#9a7d5e" stroke-width="1.15" stroke-linecap="round" opacity=".8"/>
+        <path d="M-32 2 C-18 9 18 9 32 2" fill="none" stroke="#46665F" stroke-width="1.8" stroke-linecap="round"/><path d="M-28 5 C-15 14 15 14 28 5" fill="none" stroke="#46665F" stroke-width="1.3" stroke-linecap="round" opacity=".78"/><path d="M-20 10 C-9 18 9 18 20 10" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".56"/><g stroke="#9a7d5e" stroke-width="1.05" stroke-linecap="round" fill="none" opacity=".66"><path d="M-15 4 C-10 10 -5 14 -1 18"/><path d="M15 4 C10 10 5 14 1 18"/></g>
+      </g>
+    </svg>
+    <div class="t">
+      <h2>That's the system.</h2>
+      <p>Logo locked, palette and type set, photography and voice defined. Next step — I'll design the
+      home page in this language for sign-off. Tell me if you'd like to adjust anything here first.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

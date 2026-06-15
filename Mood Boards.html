@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Take Some Time — Visual Direction &amp; Logo Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Mulish:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@300;400;500;600&family=Marcellus&family=Nunito+Sans:wght@300;400;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --page-bg: #E7E3DC;
+    --page-ink: #3A3631;
+    --page-muted: #847d72;
+    --card-radius: 22px;
+    --shadow: 0 1px 2px rgba(58,54,49,.05), 0 18px 50px -28px rgba(58,54,49,.35);
+    --hatch: rgba(58,54,49,.06);
+  }
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--page-ink);
+    font-family: 'Mulish', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Document header ---------- */
+  .doc-head { padding: 92px 0 36px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .42em; text-transform: uppercase;
+    color: var(--page-muted); font-weight: 600; margin: 0 0 22px;
+  }
+  .doc-head h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: clamp(38px, 6vw, 68px); line-height: 1.02;
+    letter-spacing: -.01em; margin: 0 0 24px; max-width: 16ch;
+  }
+  .doc-head .lede { font-size: 18px; max-width: 60ch; color: #54504a; margin: 0 0 14px; }
+  .doc-head .lede.small { font-size: 15.5px; color: var(--page-muted); max-width: 64ch; }
+
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 14px 40px;
+    margin-top: 38px; padding-top: 30px; border-top: 1px solid rgba(58,54,49,.14);
+  }
+  .meta-row div { min-width: 120px; }
+  .meta-row dt { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--page-muted); margin: 0 0 4px; }
+  .meta-row dd { margin: 0; font-size: 14.5px; font-weight: 600; }
+
+  /* reference card */
+  .ref {
+    display: grid; grid-template-columns: 1fr 1.28fr; gap: 30px; align-items: center;
+    background: #fff; border-radius: var(--card-radius); box-shadow: var(--shadow);
+    padding: 30px; margin-top: 40px;
+  }
+  .ref img { width: 100%; height: auto; border-radius: 12px; display: block; background: #fff; }
+  .ref h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 22px; line-height: 1.25; margin: 0 0 14px; }
+  .ref p { margin: 0 0 12px; font-size: 14.5px; color: #54504a; }
+  .ref .tag { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--page-muted); font-weight: 700; margin-bottom: 14px; }
+  @media (max-width: 720px){ .ref { grid-template-columns: 1fr; } }
+
+  /* ---------- Board ---------- */
+  .board {
+    --b-base:#FBF7F1; --b-surface:#fff; --b-primary:#8A9A82; --b-deep:#5A6B57;
+    --b-accent:#E4C7BE; --b-ink:#3A3631; --b-tintA:#E7ECE2; --b-tintB:#EFE7DA;
+    --b-display:'Cormorant Garamond', serif; --b-body:'Mulish', sans-serif; --b-muted:#8b857a;
+    background: var(--b-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin: 30px 0;
+  }
+  .board[data-theme="clay"]{
+    --b-base:#F6EEE6; --b-primary:#BE8159; --b-deep:#7E4F32; --b-accent:#E7CBB7;
+    --b-ink:#3D352E; --b-tintA:#EADBC9; --b-tintB:#E6D6C2; --b-muted:#94806d;
+    --b-display:'Spectral', serif; --b-body:'Figtree', sans-serif;
+  }
+  .board[data-theme="blush"]{
+    --b-base:#FBF6F3; --b-primary:#C99B93; --b-deep:#8FB1AB; --b-accent:#E4C7BE;
+    --b-ink:#34302E; --b-tintA:#DDEAE6; --b-tintB:#F1E2DC; --b-muted:#8a817c;
+    --b-display:'Marcellus', serif; --b-body:'Nunito Sans', sans-serif;
+  }
+
+  .board__bar {
+    display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap;
+    padding: 26px 40px; background: var(--b-deep); color: #fff;
+  }
+  .board__bar .no { font-family: var(--b-display); font-size: 30px; line-height: 1; opacity: .55; }
+  .board__bar .name { font-family: var(--b-display); font-size: 28px; font-weight: 500; letter-spacing: .01em; }
+  .board__bar .desc { font-size: 13.5px; color: rgba(255,255,255,.82); margin-left: auto; max-width: 46ch; }
+  @media (max-width: 720px){ .board__bar { padding: 22px 24px; } .board__bar .desc { margin-left: 0; flex-basis: 100%; } }
+
+  .board__body { padding: 40px; background: var(--b-base); }
+  @media (max-width: 720px){ .board__body { padding: 24px; } }
+
+  /* big mood/hero strip */
+  .mood {
+    position: relative; border-radius: 16px; overflow: hidden;
+    min-height: 320px; display: grid; place-items: center; text-align: center;
+    color: var(--b-ink); margin-bottom: 14px;
+    background:
+      radial-gradient(120% 140% at 80% 0%, var(--b-tintB) 0%, transparent 55%),
+      radial-gradient(120% 130% at 0% 100%, var(--b-tintA) 0%, transparent 60%),
+      var(--b-base);
+    border: 1px solid rgba(58,54,49,.08);
+  }
+  .mood .ph-note { position: absolute; left: 16px; bottom: 14px; }
+  .mood__inner { padding: 40px 24px; }
+  .mood__words { font-size: 12px; letter-spacing: .34em; text-transform: uppercase; color: var(--b-muted); margin: 0 0 18px; font-weight: 600; }
+  .wordmark { font-family: var(--b-display); line-height: 1.04; color: var(--b-ink); text-wrap: balance; }
+  .mood__inner .wordmark:first-of-type { display: block; }
+
+  /* section grid */
+  .sec-title {
+    font-size: 11px; letter-spacing: .26em; text-transform: uppercase; font-weight: 700;
+    color: var(--b-muted); margin: 0 0 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .sec-title::after { content:""; flex: 1; height: 1px; background: rgba(58,54,49,.12); }
+
+  .grid { display: grid; gap: 30px; margin-top: 34px; }
+  .grid.cols2 { grid-template-columns: 1fr 1fr; }
+  .grid.cols3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 720px){ .grid.cols2, .grid.cols3 { grid-template-columns: 1fr; } }
+
+  /* palette */
+  .swatches { display: grid; grid-template-columns: repeat(6, 1fr); border-radius: 14px; overflow: hidden; border: 1px solid rgba(58,54,49,.08); }
+  @media (max-width: 720px){ .swatches { grid-template-columns: repeat(3,1fr); } }
+  .sw { aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
+  .sw span { font-size: 10.5px; font-weight: 700; letter-spacing: .02em; }
+  .sw small { font-size: 9.5px; opacity: .8; letter-spacing: .04em; text-transform: uppercase; }
+  .sw.on-dark { color: #fff; } .sw.on-dark small { color: rgba(255,255,255,.78); }
+  .sw.on-light { color: var(--b-ink); } .sw.on-light small { color: var(--b-muted); }
+
+  /* type specimen */
+  .type-card { background: var(--b-surface); border: 1px solid rgba(58,54,49,.08); border-radius: 14px; padding: 26px; }
+  .type-pair { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--b-muted); font-weight: 700; margin: 0 0 18px; }
+  .type-pair b { color: var(--b-ink); }
+  .specimen-h { font-family: var(--b-display); color: var(--b-ink); font-weight: 500; font-size: 40px; line-height: 1.04; margin: 0 0 6px; letter-spacing: -.005em; }
+  .specimen-sub { font-family: var(--b-display); font-style: italic; color: var(--b-deep); font-size: 21px; margin: 0 0 18px; }
+  .specimen-body { font-family: var(--b-body); font-size: 14.5px; color: #56514b; margin: 0 0 16px; max-width: 46ch; }
+  .glyphs { font-family: var(--b-display); font-size: 26px; color: var(--b-deep); letter-spacing: .04em; border-top: 1px solid rgba(58,54,49,.1); padding-top: 14px; }
+
+  /* imagery */
+  .img-ph {
+    position: relative; border-radius: 14px; overflow: hidden; min-height: 190px;
+    display: flex; align-items: flex-end; padding: 16px;
+    background:
+      repeating-linear-gradient(135deg, var(--hatch) 0 1px, transparent 1px 12px),
+      linear-gradient(160deg, var(--b-tintA), var(--b-tintB));
+    border: 1px solid rgba(58,54,49,.08); color: var(--b-ink);
+  }
+  .img-ph.tall { min-height: 260px; }
+  .img-ph .cap { font-size: 12.5px; line-height: 1.35; font-weight: 600; max-width: 30ch; }
+  .ph-note { font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: var(--b-muted);
+             background: rgba(255,255,255,.7); padding: 4px 8px; border-radius: 100px; display: inline-block; backdrop-filter: blur(2px); }
+  .img-ph .cap-wrap { position: relative; z-index: 1; }
+  .img-ph .cam { position: absolute; top: 14px; left: 14px; opacity: .5; }
+
+  /* motifs */
+  .motif-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .motif {
+    flex: 1 1 130px; min-height: 120px; border-radius: 14px; border: 1px solid rgba(58,54,49,.08);
+    display: grid; place-items: center; background: var(--b-surface); position: relative; overflow: hidden;
+  }
+  .motif .lab { position: absolute; bottom: 10px; left: 12px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--b-muted); font-weight: 700; }
+
+  /* texture chips */
+  .tex { height: 64px; border-radius: 10px; border: 1px solid rgba(58,54,49,.08); }
+
+  /* UI samples */
+  .ui-card { background: var(--b-surface); border: 1px solid rgba(58,54,49,.08); border-radius: 14px; padding: 22px; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; border-radius: 100px; font-family: var(--b-body);
+         font-weight: 700; font-size: 14px; padding: 13px 22px; cursor: default; border: 1.5px solid transparent; text-decoration: none; line-height: 1; }
+  .btn--primary { background: var(--b-deep); color: #fff; }
+  .btn--secondary { background: transparent; color: var(--b-deep); border-color: var(--b-deep); }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+
+  .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 11.5px; font-weight: 600; color: var(--b-deep);
+           background: var(--b-tintA); border-radius: 10px; padding: 12px 16px; align-items: center; }
+  .trust .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--b-primary); }
+
+  .svc {
+    background: var(--b-surface); border: 1px solid rgba(58,54,49,.1); border-radius: 16px; overflow: hidden;
+  }
+  .svc__img { height: 92px; background:
+      repeating-linear-gradient(135deg, var(--hatch) 0 1px, transparent 1px 12px),
+      linear-gradient(160deg, var(--b-tintA), var(--b-accent)); }
+  .svc__b { padding: 16px 18px 18px; }
+  .svc__b h4 { font-family: var(--b-display); font-weight: 600; font-size: 20px; margin: 0 0 4px; color: var(--b-ink); }
+  .svc__b p { font-size: 12.5px; color: #57524c; margin: 0 0 12px; }
+  .svc__b .price { font-family: var(--b-display); font-size: 18px; color: var(--b-deep); }
+  .svc__b .more { font-size: 12px; font-weight: 700; color: var(--b-primary); letter-spacing: .02em; }
+  .svc__foot { display: flex; align-items: baseline; justify-content: space-between; }
+
+  /* logo concepts */
+  .logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 720px){ .logos { grid-template-columns: 1fr; } }
+  .logo-cell {
+    background: var(--b-surface); border: 1px solid rgba(58,54,49,.1); border-radius: 14px;
+    min-height: 178px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    padding: 26px 18px; position: relative;
+  }
+  .logo-cell.alt { background: var(--b-deep); }
+  .logo-cell .tagname { position: absolute; top: 12px; left: 14px; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--b-muted); font-weight: 700; }
+  .logo-cell.alt .tagname { color: rgba(255,255,255,.6); }
+  .logo-cell svg { display: block; }
+
+  /* footer */
+  .doc-foot { padding: 30px 0 110px; }
+  .next {
+    background: #fff; border-radius: var(--card-radius); box-shadow: var(--shadow); padding: 44px 48px;
+  }
+  .next h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 34px; margin: 0 0 8px; }
+  .next p { color: #54504a; max-width: 62ch; margin: 0 0 22px; }
+  .next ol { margin: 0; padding-left: 0; list-style: none; counter-reset: step; display: grid; gap: 14px; }
+  .next li { counter-increment: step; padding-left: 46px; position: relative; font-size: 14.5px; color: #45413b; }
+  .next li::before {
+    content: counter(step); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; border-radius: 50%;
+    background: #EFE7DA; color: #5A6B57; font-weight: 700; font-size: 13px; display: grid; place-items: center;
+    font-family: 'Mulish', sans-serif;
+  }
+  .q { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(58,54,49,.12); }
+  .q h3 { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--page-muted); margin: 0 0 12px; }
+  .q ul { margin: 0; padding-left: 20px; color: #45413b; font-size: 14.5px; }
+  .q li { margin-bottom: 7px; }
+  @media (max-width: 720px){ .next { padding: 30px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="doc-head wrap">
+  <p class="eyebrow">Take Some Time · Brand &amp; Visual Direction</p>
+  <h1>Three calm directions, and a new mark to grow into.</h1>
+  <p class="lede">Before we build the site, here are three visual moods to react to — each one
+  calm, warm and unhurried, but pulling in a slightly different way. The aim is to settle the
+  feeling first: palette, type, imagery, the logo. Once you pick a direction (or mix bits you
+  like from across them), I'll build the home page in that language for sign-off.</p>
+  <p class="lede small">Everything here is a starting point, not a finished asset. Image areas are
+  marked placeholders — they'll be filled with Kia's real, natural-light photography. Logos are
+  vector concepts to choose a route, then refine.</p>
+
+  <dl class="meta-row">
+    <div><dt>For</dt><dd>Kia Welham</dd></div>
+    <div><dt>Service</dt><dd>Mobile pregnancy &amp; postnatal massage</dd></div>
+    <div><dt>Area</dt><dd>Chelmsford &amp; mid-Essex</dd></div>
+    <div><dt>Feeling</dt><dd>Calm · reassured · looked-after</dd></div>
+    <div><dt>Stage</dt><dd>Direction &amp; logo — for review</dd></div>
+  </dl>
+
+  <div class="ref">
+    <img src="uploads/logo.png" alt="The Nesting Place — previous brand logo, watercolour birds around a teardrop outline in teal, blush and grey" loading="lazy" />
+    <div>
+      <span class="tag">Reference · previous brand</span>
+      <h3>What we're carrying forward from The Nesting Place</h3>
+      <p>The old mark had real warmth — soft watercolour birds, a gentle teardrop, and a muted
+      teal / blush / grey palette. That tenderness is worth keeping.</p>
+      <p>For <em>Take Some Time</em> I've kept the nurturing, natural feeling and the idea of a
+      bird / nest / drop motif, but moved to a calmer, more grown-up palette and a cleaner type
+      system that suits a premium, trustworthy service. Direction 03 leans most directly into
+      that heritage.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ BOARD 1 — SAGE & OAT ============ -->
+  <article class="board" data-theme="sage" data-screen-label="Direction 01 — Sage & Oat">
+    <div class="board__bar">
+      <span class="no">01</span>
+      <span class="name">Sage &amp; Oat</span>
+      <span class="desc">The brief's natural direction, refined. Herbal calm, lots of air,
+      an elegant serif. Reads premium and reassuring — the safest, most timeless route.</span>
+    </div>
+    <div class="board__body">
+
+      <div class="mood">
+        <span class="ph-note">Hero imagery placeholder</span>
+        <div class="mood__inner">
+          <p class="mood__words">soft · herbal · unhurried · grounded</p>
+          <div class="wordmark" style="font-size:clamp(32px,5.6vw,60px); font-weight:500; white-space:nowrap;">take some time</div>
+          <p class="wordmark" style="font-style:italic; font-size:22px; color:var(--b-deep); margin:10px 0 0;">a proper pause, brought to your door</p>
+        </div>
+      </div>
+      <p style="font-size:12.5px; color:var(--b-muted); margin:0 0 6px;">Imagined hero photo: a treatment couch dressed in oat linen by a sunlit window, eucalyptus on the sill.</p>
+
+      <div class="grid cols2">
+        <div>
+          <p class="sec-title">Colour</p>
+          <div class="swatches">
+            <div class="sw on-light" style="background:#FBF7F1"><span>Oat</span><small>FBF7F1</small></div>
+            <div class="sw on-light" style="background:#EFE7DA"><span>Sand</span><small>EFE7DA</small></div>
+            <div class="sw on-light" style="background:#E7ECE2"><span>Sage mist</span><small>E7ECE2</small></div>
+            <div class="sw on-dark" style="background:#8A9A82"><span>Sage</span><small>8A9A82</small></div>
+            <div class="sw on-dark" style="background:#5A6B57"><span>Eucalyptus</span><small>5A6B57</small></div>
+            <div class="sw on-dark" style="background:#3A3631"><span>Charcoal</span><small>3A3631</small></div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+            <div style="width:46px;height:46px;border-radius:50%;background:#E4C7BE;border:1px solid rgba(58,54,49,.08)"></div>
+            <p style="font-size:12.5px;color:#57524c;margin:0;max-width:30ch;"><b>Dusty blush #E4C7BE</b> — used sparingly, as the single warm accent for hearts, highlights and the gift range.</p>
+          </div>
+        </div>
+        <div>
+          <p class="sec-title">Type</p>
+          <div class="type-card">
+            <p class="type-pair">Display — <b>Cormorant Garamond</b> · Body — <b>Mulish</b></p>
+            <h3 class="specimen-h">Pregnancy &amp;<br>postnatal massage</h3>
+            <p class="specimen-sub">brought to your door in mid-Essex</p>
+            <p class="specimen-body">Finding an hour for yourself in the middle of it can feel impossible — which is rather the point of what I do. I bring the couch, the towels and the oils; you bring an hour to switch off.</p>
+            <div class="glyphs">Aa Gg &nbsp; £75 · 60 min &nbsp; 12 weeks +</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-title" style="margin-top:34px;">Imagery &amp; motif</p>
+        <div class="grid cols3" style="margin-top:0;">
+          <div class="img-ph tall">
+            <span class="cam">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6" width="19" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg>
+            </span>
+            <div class="cap-wrap"><span class="ph-note" style="margin-bottom:8px;">Photo</span><p class="cap">Hands working calmly across a shoulder, warm natural light, shallow focus</p></div>
+          </div>
+          <div class="img-ph tall">
+            <span class="cam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6" width="19" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg></span>
+            <div class="cap-wrap"><span class="ph-note" style="margin-bottom:8px;">Photo</span><p class="cap">Expectant mum resting, reclined and at ease in her own front room</p></div>
+          </div>
+          <div style="display:grid; gap:12px;">
+            <div class="motif">
+              <!-- eucalyptus sprig -->
+              <svg width="120" height="86" viewBox="0 0 120 86" fill="none" stroke="#5A6B57" stroke-width="1.4">
+                <path d="M60 80 C60 55 60 30 60 12" stroke-linecap="round"/>
+                <g fill="#8A9A82" stroke="none" opacity=".9">
+                  <ellipse cx="48" cy="64" rx="9" ry="6" transform="rotate(-28 48 64)"/>
+                  <ellipse cx="72" cy="56" rx="9" ry="6" transform="rotate(28 72 56)"/>
+                  <ellipse cx="46" cy="48" rx="9" ry="6" transform="rotate(-28 46 48)"/>
+                  <ellipse cx="74" cy="40" rx="9" ry="6" transform="rotate(28 74 40)"/>
+                  <ellipse cx="49" cy="32" rx="8" ry="5.5" transform="rotate(-28 49 32)"/>
+                  <ellipse cx="71" cy="25" rx="8" ry="5.5" transform="rotate(28 71 25)"/>
+                  <circle cx="60" cy="13" r="5"/>
+                </g>
+              </svg>
+              <span class="lab">Botanical line motif</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+              <div class="tex" style="background:repeating-linear-gradient(135deg,#EFE7DA 0 6px,#FBF7F1 6px 12px)"></div>
+              <div class="tex" style="background:radial-gradient(circle at 30% 30%, #E7ECE2, #8A9A82)"></div>
+              <div class="tex" style="background:#E4C7BE"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols2">
+        <div>
+          <p class="sec-title">UI feel</p>
+          <div class="ui-card">
+            <div class="btn-row">
+              <span class="btn btn--primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.7 4.3 3.7 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3l-1.6-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.3.2-.4 0-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.5z"/></svg> Message me on WhatsApp</span>
+              <span class="btn btn--secondary">Use the contact form</span>
+            </div>
+            <div class="trust">
+              <span>15+ years' experience</span><span class="dot"></span>
+              <span>City &amp; Guilds Level 3</span><span class="dot"></span>
+              <span>Insured · Guild of Holistic Therapists</span><span class="dot"></span>
+              <span>Home visits across mid-Essex</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="sec-title">Service card</p>
+          <div class="svc">
+            <div class="svc__img"></div>
+            <div class="svc__b">
+              <h4>Pregnancy massage</h4>
+              <p>Suitable from 12 weeks, adapted as your bump grows.</p>
+              <div class="svc__foot"><span class="price">£75 · 60 min</span><span class="more">Learn more →</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-title" style="margin-top:34px;">Logo concepts · 01</p>
+        <div class="logos">
+          <div class="logo-cell">
+            <span class="tagname">Sprig drop</span>
+            <!-- teardrop outline with sprig, homage to old mark -->
+            <svg width="220" height="130" viewBox="0 0 220 130" aria-label="take some time logo concept">
+              <path d="M110 16 C140 52 156 70 156 90 a46 46 0 1 1 -92 0 c0 -20 16 -38 46 -74 Z" fill="none" stroke="#8A9A82" stroke-width="2.4"/>
+              <g stroke="#5A6B57" stroke-width="1.4" fill="#8A9A82">
+                <path d="M110 30 v18" stroke-linecap="round"/>
+                <ellipse cx="103" cy="44" rx="5" ry="3.2" transform="rotate(-30 103 44)" stroke="none"/>
+                <ellipse cx="117" cy="40" rx="5" ry="3.2" transform="rotate(30 117 40)" stroke="none"/>
+              </g>
+              <text x="110" y="90" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="23" font-weight="600" fill="#3A3631">take some</text>
+              <text x="110" y="113" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="23" font-weight="600" fill="#5A6B57">time</text>
+            </svg>
+          </div>
+          <div class="logo-cell alt">
+            <span class="tagname">Stacked wordmark · reversed</span>
+            <svg width="220" height="130" viewBox="0 0 220 130" aria-label="take some time stacked logo">
+              <text x="110" y="48" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="34" font-weight="500" fill="#fff" letter-spacing="1">take</text>
+              <text x="110" y="80" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="34" font-weight="500" fill="#fff" letter-spacing="1">some</text>
+              <text x="110" y="112" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="34" font-weight="500" fill="#E4C7BE" letter-spacing="1">time</text>
+              <circle cx="44" cy="70" r="2.4" fill="#E4C7BE"/><circle cx="176" cy="70" r="2.4" fill="#E4C7BE"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ============ BOARD 2 — WARM CLAY ============ -->
+  <article class="board" data-theme="clay" data-screen-label="Direction 02 — Warm Clay">
+    <div class="board__bar">
+      <span class="no">02</span>
+      <span class="name">Warm Clay</span>
+      <span class="desc">Earthier and more grounded — sun-on-plaster warmth, terracotta and linen.
+      Handcrafted and human, with a doula-ish softness. The most distinctive of the three.</span>
+    </div>
+    <div class="board__body">
+
+      <div class="mood">
+        <span class="ph-note">Hero imagery placeholder</span>
+        <div class="mood__inner">
+          <p class="mood__words">warm · grounded · honest · nurturing</p>
+          <div class="wordmark" style="font-size:clamp(32px,5.6vw,60px); font-weight:500; white-space:nowrap;">Take Some Time</div>
+          <p class="wordmark" style="font-style:italic; font-size:22px; color:var(--b-deep); margin:10px 0 0;">an hour that's entirely your own</p>
+        </div>
+      </div>
+      <p style="font-size:12.5px; color:var(--b-muted); margin:0 0 6px;">Imagined hero photo: warm terracotta wall, a new mum cradling her baby, soft afternoon light, linen throw.</p>
+
+      <div class="grid cols2">
+        <div>
+          <p class="sec-title">Colour</p>
+          <div class="swatches">
+            <div class="sw on-light" style="background:#F6EEE6"><span>Linen</span><small>F6EEE6</small></div>
+            <div class="sw on-light" style="background:#EADBC9"><span>Sand</span><small>EADBC9</small></div>
+            <div class="sw on-light" style="background:#E7CBB7"><span>Blush clay</span><small>E7CBB7</small></div>
+            <div class="sw on-dark" style="background:#BE8159"><span>Clay</span><small>BE8159</small></div>
+            <div class="sw on-dark" style="background:#7E4F32"><span>Umber</span><small>7E4F32</small></div>
+            <div class="sw on-dark" style="background:#3D352E"><span>Cocoa ink</span><small>3D352E</small></div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+            <div style="width:46px;height:46px;border-radius:50%;background:#8B946F;border:1px solid rgba(58,54,49,.08)"></div>
+            <p style="font-size:12.5px;color:#57524c;margin:0;max-width:30ch;"><b>Olive #8B946F</b> — a muted green secondary keeps it natural, so the clay never tips into orange.</p>
+          </div>
+        </div>
+        <div>
+          <p class="sec-title">Type</p>
+          <div class="type-card">
+            <p class="type-pair">Display — <b>Spectral</b> · Body — <b>Figtree</b></p>
+            <h3 class="specimen-h">Rest and recover,<br>after birth</h3>
+            <p class="specimen-sub">a gentle hour shaped around you</p>
+            <p class="specimen-body">Everyone asks how the baby's getting on. Far fewer people ask how you're doing. A postnatal massage is an hour where the answer to that question actually matters.</p>
+            <div class="glyphs">Aa Gg &nbsp; £60 · 60 min &nbsp; postnatal</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-title" style="margin-top:34px;">Imagery &amp; motif</p>
+        <div class="grid cols3" style="margin-top:0;">
+          <div class="img-ph tall">
+            <span class="cam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6" width="19" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg></span>
+            <div class="cap-wrap"><span class="ph-note" style="margin-bottom:8px;">Photo</span><p class="cap">New mum and baby, skin-to-skin, against a warm plaster wall</p></div>
+          </div>
+          <div class="img-ph tall">
+            <span class="cam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6" width="19" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg></span>
+            <div class="cap-wrap"><span class="ph-note" style="margin-bottom:8px;">Photo</span><p class="cap">Hot stones and oils laid on folded linen, candle just lit</p></div>
+          </div>
+          <div style="display:grid; gap:12px;">
+            <div class="motif">
+              <!-- arch motif -->
+              <svg width="120" height="86" viewBox="0 0 120 86" fill="none">
+                <path d="M30 80 V44 a30 30 0 0 1 60 0 V80" fill="#E7CBB7"/>
+                <path d="M42 80 V46 a18 18 0 0 1 36 0 V80" fill="#BE8159"/>
+                <circle cx="60" cy="34" r="7" fill="#7E4F32"/>
+              </svg>
+              <span class="lab">Arch &amp; sun motif</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+              <div class="tex" style="background:repeating-linear-gradient(90deg,#EADBC9 0 5px,#F6EEE6 5px 10px)"></div>
+              <div class="tex" style="background:radial-gradient(circle at 30% 30%, #E7CBB7, #BE8159)"></div>
+              <div class="tex" style="background:#8B946F"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols2">
+        <div>
+          <p class="sec-title">UI feel</p>
+          <div class="ui-card">
+            <div class="btn-row">
+              <span class="btn btn--primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.7 4.3 3.7 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3l-1.6-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.3.2-.4 0-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.5z"/></svg> Message me on WhatsApp</span>
+              <span class="btn btn--secondary">Use the contact form</span>
+            </div>
+            <div class="trust">
+              <span>15+ years' experience</span><span class="dot"></span>
+              <span>City &amp; Guilds Level 3</span><span class="dot"></span>
+              <span>Insured · Guild of Holistic Therapists</span><span class="dot"></span>
+              <span>Home visits across mid-Essex</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="sec-title">Service card</p>
+          <div class="svc">
+            <div class="svc__img"></div>
+            <div class="svc__b">
+              <h4>Postnatal massage</h4>
+              <p>Gentle, nurturing recovery work after birth.</p>
+              <div class="svc__foot"><span class="price">£60 · 60 min</span><span class="more">Learn more →</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-title" style="margin-top:34px;">Logo concepts · 02</p>
+        <div class="logos">
+          <div class="logo-cell">
+            <span class="tagname">Arch lockup</span>
+            <svg width="220" height="130" viewBox="0 0 220 130" aria-label="take some time arch logo">
+              <path d="M70 60 a40 40 0 0 1 80 0" fill="none" stroke="#BE8159" stroke-width="2.4"/>
+              <circle cx="110" cy="34" r="6" fill="#7E4F32"/>
+              <text x="110" y="86" text-anchor="middle" font-family="Spectral,serif" font-size="22" font-weight="600" fill="#3D352E" letter-spacing="2">TAKE SOME</text>
+              <text x="110" y="110" text-anchor="middle" font-family="Spectral,serif" font-size="22" font-weight="600" fill="#BE8159" letter-spacing="6">TIME</text>
+            </svg>
+          </div>
+          <div class="logo-cell alt">
+            <span class="tagname">Monogram · reversed</span>
+            <svg width="220" height="130" viewBox="0 0 220 130" aria-label="take some time monogram">
+              <circle cx="60" cy="65" r="32" fill="none" stroke="#E7CBB7" stroke-width="2"/>
+              <text x="60" y="76" text-anchor="middle" font-family="Spectral,serif" font-size="34" font-weight="600" fill="#fff" letter-spacing="1">tst</text>
+              <text x="104" y="58" font-family="Spectral,serif" font-size="19" font-weight="600" fill="#fff">Take Some</text>
+              <text x="104" y="80" font-family="Spectral,serif" font-style="italic" font-size="19" fill="#E7CBB7">Time</text>
+              <text x="104" y="98" font-family="Figtree,sans-serif" font-size="9" fill="rgba(255,255,255,.65)" letter-spacing="2">MID-ESSEX</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ============ BOARD 3 — BLUSH & EUCALYPTUS ============ -->
+  <article class="board" data-theme="blush" data-screen-label="Direction 03 — Blush & Eucalyptus">
+    <div class="board__bar">
+      <span class="no">03</span>
+      <span class="name">Blush &amp; Eucalyptus</span>
+      <span class="desc">The closest nod to The Nesting Place — soft blush and muted teal, a tender
+      bird-and-nest motif, classic capitals. Familiar warmth, brought up to date.</span>
+    </div>
+    <div class="board__body">
+
+      <div class="mood">
+        <span class="ph-note">Hero imagery placeholder</span>
+        <div class="mood__inner">
+          <p class="mood__words">tender · gentle · familiar · soft</p>
+          <div class="wordmark" style="font-size:clamp(28px,4.8vw,54px); letter-spacing:.04em; white-space:nowrap;">TAKE SOME TIME</div>
+          <p class="wordmark" style="font-size:20px; color:var(--b-deep); margin:12px 0 0; letter-spacing:.02em;">for pregnancy &amp; new motherhood</p>
+        </div>
+      </div>
+      <p style="font-size:12.5px; color:var(--b-muted); margin:0 0 6px;">Imagined hero photo: soft-focus nursery corner, blush blanket folded over the arm of a chair, daylight.</p>
+
+      <div class="grid cols2">
+        <div>
+          <p class="sec-title">Colour</p>
+          <div class="swatches">
+            <div class="sw on-light" style="background:#FBF6F3"><span>Shell</span><small>FBF6F3</small></div>
+            <div class="sw on-light" style="background:#F1E2DC"><span>Petal</span><small>F1E2DC</small></div>
+            <div class="sw on-light" style="background:#DDEAE6"><span>Teal mist</span><small>DDEAE6</small></div>
+            <div class="sw on-dark" style="background:#C99B93"><span>Blush rose</span><small>C99B93</small></div>
+            <div class="sw on-dark" style="background:#8FB1AB"><span>Eucalyptus</span><small>8FB1AB</small></div>
+            <div class="sw on-dark" style="background:#34302E"><span>Charcoal</span><small>34302E</small></div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+            <div style="width:46px;height:46px;border-radius:50%;background:#6E6A66;border:1px solid rgba(58,54,49,.08)"></div>
+            <p style="font-size:12.5px;color:#57524c;margin:0;max-width:30ch;"><b>Warm grey #6E6A66</b> — a soft neutral for body text, echoing the grey in the old mark without feeling cold.</p>
+          </div>
+        </div>
+        <div>
+          <p class="sec-title">Type</p>
+          <div class="type-card">
+            <p class="type-pair">Display — <b>Marcellus</b> · Body — <b>Nunito Sans</b></p>
+            <h3 class="specimen-h">A little nest<br>of calm</h3>
+            <p class="specimen-sub" style="font-family:'Caveat',cursive; font-style:normal; font-size:30px;">brought to your door</p>
+            <p class="specimen-body">No clinic to find. No parking. No waiting room when you're 34 weeks along or three weeks postpartum — just a proper, restorative massage in your own front room.</p>
+            <div class="glyphs">Aa Gg &nbsp; £75 · 60 min &nbsp; from 12 weeks</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-title" style="margin-top:34px;">Imagery &amp; motif</p>
+        <div class="grid cols3" style="margin-top:0;">
+          <div class="img-ph tall">
+            <span class="cam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6" width="19" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg></span>
+            <div class="cap-wrap"><span class="ph-note" style="margin-bottom:8px;">Photo</span><p class="cap">Bump cradled in soft light, blush knit throw, calm and tender</p></div>
+          </div>
+          <div class="img-ph tall">
+            <span class="cam"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="6" width="19" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg></span>
+            <div class="cap-wrap"><span class="ph-note" style="margin-bottom:8px;">Photo / illustration</span><p class="cap">Optional: a commissioned watercolour bird, to carry the Nesting Place feel</p></div>
+          </div>
+          <div style="display:grid; gap:12px;">
+            <div class="motif">
+              <!-- little bird in nest -->
+              <svg width="120" height="86" viewBox="0 0 120 86" fill="none">
+                <path d="M34 60 q26 22 52 0" fill="none" stroke="#8FB1AB" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M30 56 q30 26 60 0" fill="none" stroke="#C99B93" stroke-width="2.2" stroke-linecap="round"/>
+                <g>
+                  <ellipse cx="60" cy="44" rx="14" ry="11" fill="#C99B93"/>
+                  <circle cx="66" cy="40" r="1.6" fill="#34302E"/>
+                  <path d="M73 42 l7 -2 -6 4 Z" fill="#8FB1AB"/>
+                  <path d="M50 44 q-8 -2 -10 4 q8 0 11 -1Z" fill="#b98981"/>
+                </g>
+                <span></span>
+              </svg>
+              <span class="lab">Bird &amp; nest motif</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+              <div class="tex" style="background:#F1E2DC"></div>
+              <div class="tex" style="background:radial-gradient(circle at 30% 30%, #DDEAE6, #8FB1AB)"></div>
+              <div class="tex" style="background:#C99B93"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols2">
+        <div>
+          <p class="sec-title">UI feel</p>
+          <div class="ui-card">
+            <div class="btn-row">
+              <span class="btn btn--primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4 14.9l-.3-.2-2.7.7.7-2.6-.2-.3A8 8 0 0 1 12 4zm-3 4c-.3 0-.6.1-.8.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.7 4.3 3.7 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3l-1.6-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.3.2-.4 0-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.5z"/></svg> Message me on WhatsApp</span>
+              <span class="btn btn--secondary">Use the contact form</span>
+            </div>
+            <div class="trust">
+              <span>15+ years' experience</span><span class="dot"></span>
+              <span>City &amp; Guilds Level 3</span><span class="dot"></span>
+              <span>Insured · Guild of Holistic Therapists</span><span class="dot"></span>
+              <span>Home visits across mid-Essex</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="sec-title">Service card</p>
+          <div class="svc">
+            <div class="svc__img"></div>
+            <div class="svc__b">
+              <h4>Hot stone massage</h4>
+              <p>Heated stones to melt away tension — postnatal only.</p>
+              <div class="svc__foot"><span class="price">£75 · 50–60 min</span><span class="more">Learn more →</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-title" style="margin-top:34px;">Logo concepts · 03</p>
+        <div class="logos">
+          <div class="logo-cell">
+            <span class="tagname">Drop &amp; bird — heritage</span>
+            <svg width="220" height="130" viewBox="0 0 220 130" aria-label="take some time drop and bird logo">
+              <path d="M110 18 C138 52 152 68 152 88 a42 42 0 1 1 -84 0 c0 -20 14 -36 42 -70 Z" fill="none" stroke="#8FB1AB" stroke-width="2.6"/>
+              <path d="M110 24 C134 54 146 68 146 88" fill="none" stroke="#C99B93" stroke-width="2.6" stroke-linecap="round"/>
+              <g transform="translate(150 70)">
+                <ellipse cx="0" cy="0" rx="11" ry="8.5" fill="#C99B93"/>
+                <circle cx="5" cy="-3" r="1.3" fill="#34302E"/>
+                <path d="M11 -1 l6 -2 -5 3 Z" fill="#8FB1AB"/>
+              </g>
+              <text x="110" y="86" text-anchor="middle" font-family="Marcellus,serif" font-size="17" fill="#34302E" letter-spacing="1.5">take some</text>
+              <text x="110" y="106" text-anchor="middle" font-family="Marcellus,serif" font-size="17" fill="#8FB1AB" letter-spacing="4">time</text>
+            </svg>
+          </div>
+          <div class="logo-cell alt">
+            <span class="tagname">Script + caps · reversed</span>
+            <svg width="220" height="130" viewBox="0 0 220 130" aria-label="take some time script logo">
+              <text x="110" y="58" text-anchor="middle" font-family="Caveat,cursive" font-size="46" fill="#E4C7BE">take some</text>
+              <text x="110" y="92" text-anchor="middle" font-family="Marcellus,serif" font-size="30" fill="#fff" letter-spacing="10">TIME</text>
+              <line x1="64" y1="104" x2="156" y2="104" stroke="#8FB1AB" stroke-width="1.4"/>
+              <text x="110" y="120" text-anchor="middle" font-family="Nunito Sans,sans-serif" font-size="8.5" fill="rgba(255,255,255,.7)" letter-spacing="3">CHELMSFORD &amp; MID-ESSEX</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ============ LOGO LINEUP ============ -->
+  <article class="board" data-theme="sage" data-screen-label="Logo concepts — full lineup">
+    <div class="board__bar">
+      <span class="no">★</span>
+      <span class="name">Logo routes at a glance</span>
+      <span class="desc">Six marks pulled together so you can compare. Tell me which feels right —
+      we refine one (and can warm it with a commissioned bird or botanical to match the old style).</span>
+    </div>
+    <div class="board__body" style="background:#fff;">
+      <div class="logos" style="grid-template-columns:repeat(3,1fr);">
+        <div class="logo-cell" style="background:#FBF7F1;">
+          <span class="tagname">A · Sprig drop</span>
+          <svg width="180" height="120" viewBox="0 0 180 120" aria-label="logo A">
+            <path d="M90 16 C115 46 128 60 128 78 a38 38 0 1 1 -76 0 c0 -18 13 -32 38 -62 Z" fill="none" stroke="#8A9A82" stroke-width="2.4"/>
+            <g><path d="M90 28 v14" stroke="#5A6B57" stroke-width="1.3" stroke-linecap="round"/>
+              <ellipse cx="84" cy="40" rx="4.5" ry="3" transform="rotate(-30 84 40)" fill="#8A9A82"/>
+              <ellipse cx="96" cy="36" rx="4.5" ry="3" transform="rotate(30 96 36)" fill="#8A9A82"/></g>
+            <text x="90" y="78" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="19" font-weight="600" fill="#3A3631">take some</text>
+            <text x="90" y="98" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="19" font-weight="600" fill="#5A6B57">time</text>
+          </svg>
+        </div>
+        <div class="logo-cell" style="background:#FBF7F1;">
+          <span class="tagname">B · Stacked serif</span>
+          <svg width="180" height="120" viewBox="0 0 180 120" aria-label="logo B">
+            <text x="90" y="44" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="30" font-weight="500" fill="#3A3631">take</text>
+            <text x="90" y="72" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="30" font-weight="500" fill="#3A3631">some</text>
+            <text x="90" y="100" text-anchor="middle" font-family="Cormorant Garamond,serif" font-style="italic" font-size="30" font-weight="500" fill="#8A9A82">time</text>
+          </svg>
+        </div>
+        <div class="logo-cell" style="background:#F6EEE6;">
+          <span class="tagname">C · Arch &amp; sun</span>
+          <svg width="180" height="120" viewBox="0 0 180 120" aria-label="logo C">
+            <path d="M56 56 a34 34 0 0 1 68 0" fill="none" stroke="#BE8159" stroke-width="2.2"/>
+            <circle cx="90" cy="32" r="5" fill="#7E4F32"/>
+            <text x="90" y="80" text-anchor="middle" font-family="Spectral,serif" font-size="18" font-weight="600" fill="#3D352E" letter-spacing="1.5">TAKE SOME</text>
+            <text x="90" y="102" text-anchor="middle" font-family="Spectral,serif" font-size="18" font-weight="600" fill="#BE8159" letter-spacing="5">TIME</text>
+          </svg>
+        </div>
+        <div class="logo-cell" style="background:#FBF6F3;">
+          <span class="tagname">D · Drop &amp; bird</span>
+          <svg width="180" height="120" viewBox="0 0 180 120" aria-label="logo D">
+            <path d="M90 16 C114 46 126 58 126 76 a36 36 0 1 1 -72 0 c0 -18 12 -30 36 -60 Z" fill="none" stroke="#8FB1AB" stroke-width="2.4"/>
+            <path d="M90 22 C112 48 122 58 122 76" fill="none" stroke="#C99B93" stroke-width="2.4" stroke-linecap="round"/>
+            <g transform="translate(124 60)"><ellipse cx="0" cy="0" rx="9" ry="7" fill="#C99B93"/><circle cx="4" cy="-2.5" r="1.1" fill="#34302E"/><path d="M9 -1 l5 -1.6 -4 2.6 Z" fill="#8FB1AB"/></g>
+            <text x="90" y="74" text-anchor="middle" font-family="Marcellus,serif" font-size="14" fill="#34302E" letter-spacing="1">take some</text>
+            <text x="90" y="92" text-anchor="middle" font-family="Marcellus,serif" font-size="14" fill="#8FB1AB" letter-spacing="3">time</text>
+          </svg>
+        </div>
+        <div class="logo-cell" style="background:#FBF6F3;">
+          <span class="tagname">E · Script &amp; caps</span>
+          <svg width="180" height="120" viewBox="0 0 180 120" aria-label="logo E">
+            <text x="90" y="52" text-anchor="middle" font-family="Caveat,cursive" font-size="40" fill="#C99B93">take some</text>
+            <text x="90" y="84" text-anchor="middle" font-family="Marcellus,serif" font-size="26" fill="#34302E" letter-spacing="9">TIME</text>
+            <line x1="52" y1="95" x2="128" y2="95" stroke="#8FB1AB" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="logo-cell" style="background:#5A6B57;">
+          <span class="tagname" style="color:rgba(255,255,255,.6)">F · Monogram</span>
+          <svg width="180" height="120" viewBox="0 0 180 120" aria-label="logo F">
+            <circle cx="90" cy="50" r="26" fill="none" stroke="#E4C7BE" stroke-width="1.8"/>
+            <text x="90" y="60" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="30" font-weight="500" fill="#fff">tst</text>
+            <text x="90" y="96" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="15" font-weight="500" fill="#fff" letter-spacing="2">take some time</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer class="doc-foot wrap">
+  <div class="next">
+    <h2>What I'd like from you</h2>
+    <p>This is the fork-in-the-road moment. Pick the direction that feels most like Kia's
+    business — or tell me which bits to splice together (e.g. Direction 01's palette with
+    Direction 03's bird mark). Once it's settled I'll build the home page in that language.</p>
+    <ol>
+      <li>Which of the three directions feels right — 01 Sage &amp; Oat, 02 Warm Clay, or 03 Blush &amp; Eucalyptus?</li>
+      <li>Which logo route (A–F) should I refine? Should the final mark include an illustrated bird, a botanical, or stay purely typographic?</li>
+      <li>Any colours, fonts or motifs to pull across from another board, or drop entirely?</li>
+      <li>Confirm the type pairing for the winner — I'll lock it before building.</li>
+    </ol>
+    <div class="q">
+      <h3>A few things worth deciding</h3>
+      <ul>
+        <li><b>The name treatment</b> — lowercase &amp; gentle (01), title case &amp; warm (02), or all-caps &amp; classic (03)?</li>
+        <li><b>Heritage</b> — how much should this feel like a continuation of The Nesting Place vs. a fresh start?</li>
+        <li><b>Photography</b> — do we have real photos of Kia, the couch set-up and treatments, or should I plan around a shoot? It changes how heavily we lean on imagery vs. type and motif.</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

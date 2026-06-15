@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Take Some Time — Nest Shapes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:wght@300;400;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root{
+    --shell:#FBF6F3; --petal:#F1E2DC; --tealmist:#DDEAE6;
+    --blush:#C99B93; --euc:#8FB1AB; --euc-deep:#46665F;
+    --ink:#34302E; --grey:#6E6A66; --line:rgba(52,48,46,.12);
+    --shadow:0 1px 2px rgba(52,48,46,.05), 0 20px 50px -30px rgba(52,48,46,.4);
+    --radius:20px;
+  }
+  html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  body{ margin:0; background:var(--shell); color:var(--ink); font-family:'Nunito Sans',system-ui,sans-serif; line-height:1.62; }
+  .wrap{ max-width:1140px; margin:0 auto; padding:0 28px; }
+  svg{ overflow:visible; }
+
+  .head{ padding:84px 0 18px; }
+  .eyebrow{ font-size:12px; letter-spacing:.4em; text-transform:uppercase; color:var(--grey); font-weight:700; margin:0 0 20px; }
+  .head h1{ font-family:'Marcellus',serif; font-weight:400; font-size:clamp(32px,5vw,52px); line-height:1.05; margin:0 0 20px; max-width:20ch; }
+  .head p{ font-size:16.5px; color:#54504a; max-width:62ch; margin:0 0 12px; }
+  .head p.small{ font-size:14px; color:var(--grey); max-width:64ch; }
+
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; padding:40px 0 8px; }
+  @media (max-width:900px){ .grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .grid{ grid-template-columns:1fr; } }
+  .opt{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; }
+  .opt .stage{ min-height:222px; display:grid; place-items:center; position:relative; }
+  .opt .stage.s1{ background:var(--shell); }
+  .opt .stage.s2{ background:linear-gradient(135deg,#E3ECE8,#F4E8E2); }
+  .opt .stage.s3{ background:var(--petal); }
+  .opt .stage.s4{ background:radial-gradient(130% 130% at 50% 22%, #EBF1EE, #CFE0DA); }
+  .opt .stage.s5{ background:var(--euc-deep); }
+  .opt .stage.s6{ background:var(--tealmist); }
+  .opt .num{ position:absolute; top:12px; left:15px; font-family:'Marcellus',serif; font-size:14px; color:var(--euc-deep); opacity:.6; }
+  .opt .stage.s5 .num{ color:#fff; opacity:.5; }
+  .opt .wm{ font-family:'Marcellus',serif; font-size:13px; letter-spacing:2px; color:var(--ink); margin-top:8px; }
+  .opt .stage.s5 .wm{ color:#fff; }
+  .opt .meta{ padding:18px 20px 20px; border-top:1px solid var(--line); }
+  .opt .meta h3{ font-family:'Marcellus',serif; font-weight:400; font-size:19px; margin:0 0 5px; }
+  .opt .meta p{ font-size:13px; color:#57524c; margin:0; }
+
+  .foot{ padding:36px 0 110px; }
+  .note{ background:var(--euc-deep); color:#fff; border-radius:var(--radius); padding:40px 44px; box-shadow:var(--shadow); }
+  .note h2{ font-family:'Marcellus',serif; font-weight:400; font-size:28px; margin:0 0 10px; }
+  .note p{ color:rgba(255,255,255,.86); max-width:62ch; margin:0 0 8px; font-size:14.5px; }
+  .note b{ color:#fff; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gBlush" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1E2DC"/><stop offset="1" stop-color="#C99B93"/></linearGradient>
+  <radialGradient id="gEucMist" cx="0.35" cy="0.28" r="0.85"><stop offset="0" stop-color="#E6EFEC"/><stop offset="1" stop-color="#8FB1AB"/></radialGradient>
+</defs></svg>
+
+<header class="head wrap">
+  <p class="eyebrow">Take Some Time · Nest &amp; Eggs — the nest shape</p>
+  <h1>Six nest shapes, tidied up.</h1>
+  <p>Chick gone, straw gone. This round is about the <b>form</b> of the nest itself — where the rim sits,
+  how deep the cup is, and how the eggs settle into it — so the silhouette reads as one clean shape.</p>
+  <p class="small">Each adds an open <em>back rim</em> behind the eggs, so the nest reads as a proper cup
+  rather than a bowl the eggs sit on top of. Pick a shape and I'll make it the final mark.</p>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <!-- 01 ROUNDED CUP -->
+    <div class="opt">
+      <div class="stage s1">
+        <span class="num">01</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Rounded cup nest">
+          <g transform="translate(90 60) scale(1.7)">
+            <path d="M-28 -3 C-19 -10 19 -10 28 -3" fill="none" stroke="#46665F" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="-6" cy="-7" rx="7" ry="9" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-4" rx="5.6" ry="7.3" fill="url(#gEucMist)"/>
+            <path d="M-28 -3 C-28 16 -15 26 0 26 C15 26 28 16 28 -3 C19 4 -19 4 -28 -3 Z" fill="#E7DAC9"/>
+            <path d="M-28 -3 C-18 4 18 4 28 -3" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M-25 2 C-13 12 13 12 25 2" fill="none" stroke="#46665F" stroke-width="1.2" stroke-linecap="round" opacity=".66"/>
+            <path d="M-19 7 C-9 15 9 15 19 7" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".5"/>
+            <g stroke="#9a7d5e" stroke-width="1" stroke-linecap="round" fill="none" opacity=".6">
+              <path d="M-20 0 C-14 6 -9 11 -4 16"/><path d="M20 0 C14 6 9 11 4 16"/><path d="M-7 -1 C-3 6 1 11 4 16"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Rounded Cup</h3><p>A deep, even cup with an open back rim. Balanced and classic — the eggs sit <em>inside</em>, not on top.</p></div>
+    </div>
+
+    <!-- 02 OPEN RIM OVAL -->
+    <div class="opt">
+      <div class="stage s2">
+        <span class="num">02</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Open rim oval nest">
+          <g transform="translate(90 60) scale(1.7)">
+            <path d="M-29 -4 C-19 -11 19 -11 29 -4" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/>
+            <ellipse cx="-6" cy="-7" rx="6.8" ry="8.6" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-4" rx="5.4" ry="7" fill="url(#gEucMist)"/>
+            <path d="M-29 -4 C-27 13 -14 22 0 22 C14 22 27 13 29 -4 C20 3 -20 3 -29 -4 Z" fill="#E7DAC9"/>
+            <path d="M-29 -4 C-19 4 19 4 29 -4" fill="none" stroke="#46665F" stroke-width="2" stroke-linecap="round"/>
+            <path d="M-23 3 C-12 11 12 11 23 3" fill="none" stroke="#46665F" stroke-width="1.1" stroke-linecap="round" opacity=".5"/>
+            <path d="M-16 8 C-7 14 7 14 16 8" fill="none" stroke="#46665F" stroke-width="1" stroke-linecap="round" opacity=".38"/>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Open Rim Oval</h3><p>A strong elliptical mouth seen slightly from above — the most “you can see into it”. Crisp and modern.</p></div>
+    </div>
+
+    <!-- 03 WOVEN LINES -->
+    <div class="opt">
+      <div class="stage s3">
+        <span class="num">03</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Woven line nest">
+          <g transform="translate(90 60) scale(1.7)">
+            <path d="M-28 -3 C-19 -10 19 -10 28 -3" fill="none" stroke="#46665F" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="-6" cy="-7" rx="7" ry="9" fill="url(#gBlush)"/>
+            <ellipse cx="7.5" cy="-4" rx="5.6" ry="7.3" fill="url(#gEucMist)"/>
+            <g stroke="#46665F" fill="none" stroke-linecap="round">
+              <path d="M-28 -3 C-28 16 -15 26 0 26 C15 26 28 16 28 -3" stroke-width="1.6"/>
+              <path d="M-28 -3 C-18 4 18 4 28 -3" stroke-width="1.4"/>
+              <path d="M-25 2 C-13 12 13 12 25 2" stroke-width="1.2" opacity=".72"/>
+              <path d="M-20 7 C-9 15 9 15 20 7" stroke-width="1.05" opacity=".56"/>
+              <path d="M-13 12 C-5 17 5 17 13 12" stroke-width="1" opacity=".42"/>
+            </g>
+            <g stroke="#9a7d5e" stroke-width=".95" stroke-linecap="round" fill="none" opacity=".55">
+              <path d="M-21 0 C-15 6 -10 11 -5 16"/><path d="M21 0 C15 6 10 11 5 16"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Woven Lines</h3><p>No solid fill — the nest is drawn purely in interlaced strokes. The lightest, airiest, most delicate option.</p></div>
+    </div>
+
+    <!-- 04 WIDE & SHALLOW -->
+    <div class="opt">
+      <div class="stage s4">
+        <span class="num">04</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Wide shallow nest">
+          <g transform="translate(90 64) scale(1.62)">
+            <path d="M-33 -1 C-22 -8 22 -8 33 -1" fill="none" stroke="#46665F" stroke-width="1.4" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="-7" cy="-5" rx="6.8" ry="8.4" fill="url(#gBlush)"/>
+            <ellipse cx="7" cy="-3" rx="5.4" ry="7" fill="url(#gEucMist)"/>
+            <path d="M-33 -1 C-33 13 -18 20 0 20 C18 20 33 13 33 -1 C22 5 -22 5 -33 -1 Z" fill="#E7DAC9"/>
+            <path d="M-33 -1 C-21 5 21 5 33 -1" fill="none" stroke="#46665F" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M-28 3 C-15 11 15 11 28 3" fill="none" stroke="#46665F" stroke-width="1.15" stroke-linecap="round" opacity=".6"/>
+            <path d="M-20 8 C-9 13 9 13 20 8" fill="none" stroke="#46665F" stroke-width="1.05" stroke-linecap="round" opacity=".44"/>
+            <g stroke="#9a7d5e" stroke-width=".95" stroke-linecap="round" fill="none" opacity=".55">
+              <path d="M-24 1 C-17 6 -11 10 -5 14"/><path d="M24 1 C17 6 11 10 5 14"/>
+            </g>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Wide &amp; Shallow</h3><p>A low, broad nest. Sits calmly under the wordmark and holds a horizontal lockup beautifully.</p></div>
+    </div>
+
+    <!-- 05 SOLID ICON -->
+    <div class="opt">
+      <div class="stage s5">
+        <span class="num">05</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Solid icon nest">
+          <g transform="translate(90 60) scale(1.7)">
+            <path d="M-27 -3 C-18 -9 18 -9 27 -3" fill="none" stroke="#DDEAE6" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+            <ellipse cx="-6" cy="-7" rx="6.8" ry="8.8" fill="#F4E8DF"/>
+            <ellipse cx="7.5" cy="-4" rx="5.4" ry="7" fill="#CFE0DA"/>
+            <path d="M-27 -3 C-27 15 -14 25 0 25 C14 25 27 15 27 -3 C18 4 -18 4 -27 -3 Z" fill="#fff"/>
+            <path d="M-27 -3 C-18 4 18 4 27 -3" fill="none" stroke="#46665F" stroke-width="1.6" stroke-linecap="round" opacity=".35"/>
+            <path d="M-22 3 C-11 12 11 12 22 3" fill="none" stroke="#46665F" stroke-width="1.3" stroke-linecap="round" opacity=".25"/>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>Solid Icon</h3><p>A simplified, near-silhouette build for tiny sizes — favicon, app icon, stamp. The crispest of the set.</p></div>
+    </div>
+
+    <!-- 06 NEST FROM ABOVE -->
+    <div class="opt">
+      <div class="stage s6">
+        <span class="num">06</span>
+        <div style="text-align:center;">
+        <svg width="180" height="150" viewBox="0 0 180 150" aria-label="Nest seen from above">
+          <g transform="translate(90 60) scale(1.55)">
+            <ellipse cx="0" cy="2" rx="30" ry="20" fill="#E7DAC9"/>
+            <ellipse cx="0" cy="2" rx="30" ry="20" fill="none" stroke="#46665F" stroke-width="1.6"/>
+            <ellipse cx="0" cy="3" rx="16" ry="10" fill="#EFE6D6"/>
+            <ellipse cx="0" cy="3" rx="16" ry="10" fill="none" stroke="#46665F" stroke-width="1.2" opacity=".7"/>
+            <g stroke="#9a7d5e" stroke-width="1" stroke-linecap="round" fill="none" opacity=".6">
+              <path d="M0 -18 C6 -14 9 -10 11 -7"/><path d="M0 -18 C-6 -14 -9 -10 -11 -7"/>
+              <path d="M26 -2 C22 2 19 5 16 7"/><path d="M-26 -2 C-22 2 -19 5 -16 7"/>
+              <path d="M22 12 C18 14 14 15 11 16"/><path d="M-22 12 C-18 14 -14 15 -11 16"/>
+            </g>
+            <ellipse cx="-5" cy="2" rx="6" ry="7.6" fill="url(#gBlush)"/>
+            <ellipse cx="7" cy="4" rx="5" ry="6.4" fill="url(#gEucMist)"/>
+          </g>
+        </svg>
+        <div class="wm">TAKE SOME TIME</div>
+        </div>
+      </div>
+      <div class="meta"><h3>From Above</h3><p>A different view entirely — looking down into a woven ring, eggs settled in the centre. The most distinctive silhouette.</p></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="foot wrap">
+  <div class="note">
+    <h2>Which shape feels right?</h2>
+    <p>These are all about the nest's <b>form</b> — pick the silhouette you like and I'll refine the weave
+    and balance it, then rebuild the lockups, favicon and the Style Board around it.</p>
+    <p style="opacity:.8;font-size:13px;">Happy to blend — e.g. the deep cup of 01 with the cleaner rim of 02, or the airy line-work of 03 at a heavier weight.</p>
+  </div>
+</footer>
+
+</body>
+</html>
